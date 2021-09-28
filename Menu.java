@@ -37,8 +37,12 @@ public class Menu {
                 case 5:
                     System.out.print("La resto es"+ (num1%num2));
                     break;
+                case 6:
+                    System.out.print("Adios");
+                    break;
+                
                 default:
-                    System.out.print("adios");      
+                    System.out.print("Opcion no correcta");      
             }
  
         } while (opcion != 6);
