@@ -1,10 +1,10 @@
 import java.util.Scanner;
-// Menu de calculadora usando switch
 
 public class Menu {
     public static void main(String[] args){
         int opcion, num1, num2;
-        
+        Scanner entrada = new Scanner(System.in);
+
         System.out.print("Introduzca un número");
         num1 = entrada.nextInt();
         System.out.print("Introduzca otro un número");
