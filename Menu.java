@@ -39,7 +39,7 @@ public class Menu {
                     System.out.print("adios");      
             }
  
-        } while (opcion != 6)
+        } while (opcion != 6);
         
     }
 }
