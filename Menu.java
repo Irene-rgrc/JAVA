@@ -2,13 +2,15 @@ import java.util.Scanner;
 
 public class Menu {
     public static void main(String[] args){
-        int opcion, num1, num2;
+        
         Scanner entrada = new Scanner(System.in);
-
-        System.out.print("Introduzca un número");
-        num1 = entrada.nextInt();
-        System.out.print("Introduzca otro un número");
-        num2 = entrada.nextInt();
+        int opcion, num1, num2;
+        
+        do{
+            System.out.print("Introduzca un número");
+            num1 = entrada.nextInt();
+            System.out.print("Introduzca otro un número");
+            num2 = entrada.nextInt();
 
         do {
             System.out.println("1, Suma");
@@ -42,4 +44,6 @@ public class Menu {
         } while (opcion != 6);
         
     }
+  }
 }
+    
