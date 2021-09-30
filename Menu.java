@@ -19,6 +19,7 @@ public class Menu {
             System.out.println("4, División");
             System.out.println("5, Resto");
             System.out.println("6, Salir");
+            
             opcion = entrada.nextInt(); 
             
             switch (opcion) {
@@ -47,7 +48,8 @@ public class Menu {
  
         } while (opcion != 6);
         
-    }
+    }while (num1 > 0 && num2 > 0);
   }
 }
     
+
