@@ -2,27 +2,55 @@ import java.util.Scanner;
 
 public class Tarea2 {
     public static void main(String[] args){
-        
+        System.out.println("Programa realizado por : ");
+        System.out.println("Irene Rodriguez García");
+        System.out.println("--------------------------------");
         Scanner entrada = new Scanner(System.in);
-        int num1, num2;
+        String cadena1;
+        String cadena2;
+        double num1, num2, angulo;
         //*COMPARACIÓN DE DOS CADENAS
-        
+        do {
+            System.out.println("-----------CADENAS-----------");
+            System.out.print("Introduzca la primera cadena : ");
+            cadena1 = entrada.nextLine();
+            System.out.print("Introduzca la segunda cadena : ");
+            cadena2 = entrada.nextLine();
+            
+            System.out.print("La longuitud de " + cadena1 + " es "+ cadena1.length());
+            System.out.print("La longuitud de " + cadena2 + " es "+ cadena2.length());
+            
+            if(cadena1.compareTo(cadena2)==0){
+                System.out.println("¿Son iguales las cadenas? True");
+            }
+            else{
+                System.out.println("¿Son iguales las cadenas? False");
+            }
+            
+            System.out.println("¿Son iguales las cadenas ignorando las minusculas y mayusculas?"+cadena1.equalsIgnoreCase(cadena2));
+            
+            System.out.print("Primera cadena en mayusculas "+ cadena1.toUppercase())
+            System.out.print("Segunda cadena en mayusculas "+ cadena2.toLowercase())
+            
+    
         //*TRIANGULO
-        do{
+        
             System.out.println("----------TRIANGULO----------");
             System.out.print("Introduzca el primer lado : ");
             num1 = entrada.nextInt();
             System.out.print("Introduzca el otro lado : ");
             num2 = entrada.nextInt();
             System.out.print("Introduzca el angulo : ");
-            num2 = entrada.nextInt();
+            angulo = entrada.nextInt();
+            System.out.println(" ");
             
-            System.out.print("El área del triangulo es : "+ (num1*num2))
+            System.out.print("El área del triangulo es : "+ ((num1*num2*sin(angulo))/2))
             System.out.println(" ");
 
         
         
-    }while (True); //MODIFICAR DESPUES
+        
+        
+    }while (True);
   }
-}
-    
+} 
