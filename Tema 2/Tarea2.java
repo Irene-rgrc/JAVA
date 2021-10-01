@@ -12,13 +12,13 @@ public class Tarea2 {
         //*COMPARACIÓN DE DOS CADENAS
         do {
             System.out.println("-----------CADENAS-----------");
-            System.out.print("Introduzca la primera cadena : ");
+            System.out.println("Introduzca la primera cadena : ");
             cadena1 = entrada.nextLine();
-            System.out.print("Introduzca la segunda cadena : ");
+            System.out.println("Introduzca la segunda cadena : ");
             cadena2 = entrada.nextLine();
             
-            System.out.print("La longuitud de " + cadena1 + " es "+ cadena1.length());
-            System.out.print("La longuitud de " + cadena2 + " es "+ cadena2.length());
+            System.out.println("La longuitud de " + cadena1 + " es "+ cadena1.length());
+            System.out.println("La longuitud de " + cadena2 + " es "+ cadena2.length());
             
             if(cadena1.compareTo(cadena2)==0){
                 System.out.println("¿Son iguales las cadenas? True");
@@ -27,29 +27,27 @@ public class Tarea2 {
                 System.out.println("¿Son iguales las cadenas? False");
             }
             
-            System.out.println("¿Son iguales las cadenas ignorando las minusculas y mayusculas?"+cadena1.equalsIgnoreCase(cadena2));
+            System.out.println("¿Son iguales las cadenas ignorando las minusculas y mayusculas?"+ cadena1.equalsIgnoreCase(cadena2));
             
-            System.out.print("Primera cadena en mayusculas "+ cadena1.toUppercase())
-            System.out.print("Segunda cadena en mayusculas "+ cadena2.toLowercase())
+            System.out.println("Primera cadena en mayusculas "+ cadena1.toUpperCase());
+            System.out.println("Segunda cadena en mayusculas "+ cadena2.toLowerCase());
+                    
+            
             
     
         //*TRIANGULO
         
             System.out.println("----------TRIANGULO----------");
-            System.out.print("Introduzca el primer lado : ");
+            System.out.println("Introduzca el primer lado : ");
             num1 = entrada.nextInt();
-            System.out.print("Introduzca el otro lado : ");
+            System.out.println("Introduzca el otro lado : ");
             num2 = entrada.nextInt();
-            System.out.print("Introduzca el angulo : ");
+            System.out.println("Introduzca el angulo : ");
             angulo = entrada.nextInt();
-            System.out.println(" ");
             
             System.out.print("El área del triangulo es : "+ ((num1*num2*sin(angulo))/2))
             System.out.println(" ");
 
-        
-        
-        
         
     }while (True);
   }
