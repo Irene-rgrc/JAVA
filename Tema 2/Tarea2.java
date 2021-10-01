@@ -50,4 +50,7 @@ public class Tarea2 {
             
         System.out.print("El área del triangulo es : "+ ((num1*num2*Math.sin((angulo))/2)));
         System.out.println(" ");
+        
 
+    }
+}
