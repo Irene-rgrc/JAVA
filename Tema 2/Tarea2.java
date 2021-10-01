@@ -10,9 +10,9 @@ public class Tarea2 {
         String cadena2;
         double num1, num2, angulo;
         System.out.println("-----------CADENAS-----------");
-        System.out.println("Introduzca la primera cadena : ");
+        System.out.print("Introduzca la primera cadena : ");
         cadena1 = entrada.nextLine();
-        System.out.println("Introduzca la segunda cadena : ");
+        System.out.print("Introduzca la segunda cadena : ");
         cadena2 = entrada.nextLine();
             
         System.out.println("La longuitud de " + cadena1 + " es "+ cadena1.length());
@@ -25,7 +25,7 @@ public class Tarea2 {
             System.out.println("¿Son iguales las cadenas? False");
           }
             
-        System.out.println("¿Son iguales las cadenas ignorando las minusculas y mayusculas?"+ cadena1.equalsIgnoreCase(cadena2));
+        System.out.println("¿Son iguales las cadenas ignorando las minusculas y mayusculas? "+ cadena1.equalsIgnoreCase(cadena2));
             
         System.out.println("Primera cadena en mayusculas "+ cadena1.toUpperCase());
         System.out.println("Segunda cadena en mayusculas "+ cadena2.toLowerCase());
@@ -34,21 +34,21 @@ public class Tarea2 {
             System.out.print("Indice de la primera aparición de 'a' : "+ cadena1.indexOf('a'));
             System.out.print("Indice de la última aparición de 'a' : "+ cadena1.lastIndexOf('a'));
           }
+        System.out.println(" ");
+       
                     
-            
-            
     
         //*TRIANGULO
         
         System.out.println("----------TRIANGULO----------");
-        System.out.println("Introduzca el primer lado : ");
+        System.out.print("Introduzca el primer lado : ");
         num1 = entrada.nextInt();
-        System.out.println("Introduzca el otro lado : ");
+        System.out.print("Introduzca el otro lado : ");
         num2 = entrada.nextInt();
-        System.out.println("Introduzca el angulo : ");
+        System.out.print("Introduzca el angulo : ");
         angulo = entrada.nextInt();
             
-        System.out.print("El área del triangulo es : "+ ((num1*num2*Math.sin((angulo))/2)));
+        System.out.print("El área del triangulo es : "+ ((num1*num2*Math.sin((Math.toRadians(angulo)))/2)));
         System.out.println(" ");
         
 
