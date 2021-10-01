@@ -50,10 +50,10 @@ public class Tarea2 {
             System.out.println("Introduzca el angulo : ");
             angulo = entrada.nextInt();
             
-            System.out.print("El área del triangulo es : "+ ((num1*num2*sin(angulo))/2))
+            System.out.print("El área del triangulo es : "+ ((num1*num2*Math.sin((angulo))/2)));
             System.out.println(" ");
 
         
-    }while (True);
+    }while (true);
   }
 } 
