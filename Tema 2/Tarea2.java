@@ -28,13 +28,12 @@ public class Tarea2 {
         System.out.println("¿Son iguales las cadenas ignorando las minusculas y mayusculas? "+ cadena1.equalsIgnoreCase(cadena2));
             
         System.out.println("Primera cadena en mayusculas "+ cadena1.toUpperCase());
-        System.out.println("Segunda cadena en mayusculas "+ cadena2.toLowerCase());
+        System.out.println("Segunda cadena en minusculas "+ cadena2.toLowerCase());
             
         if (cadena1.contains("a")){
-            System.out.print("Indice de la primera aparición de 'a' : "+ cadena1.indexOf('a'));
-            System.out.print("Indice de la última aparición de 'a' : "+ cadena1.lastIndexOf('a'));
+            System.out.println("Indice de la primera aparición de 'a' : "+ cadena1.indexOf('a'));
+            System.out.println("Indice de la última aparición de 'a' : "+ cadena1.lastIndexOf('a'));
           }
-        System.out.println(" ");
        
                     
     
