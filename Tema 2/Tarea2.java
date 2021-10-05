@@ -15,24 +15,24 @@ public class Tarea2 {
         System.out.print("Introduzca la segunda cadena : ");
         cadena2 = entrada.nextLine();
             
-        System.out.println("La longuitud de " + cadena1 + " es "+ cadena1.length());
-        System.out.println("La longuitud de " + cadena2 + " es "+ cadena2.length());
+        System.out.println("La longuitud de " + cadena1 + " es : "+ cadena1.length());
+        System.out.println("La longuitud de " + cadena2 + " es : "+ cadena2.length());
             
         if(cadena1.compareTo(cadena2)==0){
-            System.out.println("¿Son iguales las cadenas? True");
+            System.out.println("¿Son iguales las cadenas? true");
           }
         else{
-            System.out.println("¿Son iguales las cadenas? False");
+            System.out.println("¿Son iguales las cadenas? false");
           }
             
         System.out.println("¿Son iguales las cadenas ignorando las minusculas y mayusculas? "+ cadena1.equalsIgnoreCase(cadena2));
             
-        System.out.println("Primera cadena en mayusculas "+ cadena1.toUpperCase());
-        System.out.println("Segunda cadena en minusculas "+ cadena2.toLowerCase());
+        System.out.println("Primera cadena en mayusculas es : "+ cadena1.toUpperCase());
+        System.out.println("Segunda cadena en minusculas es : "+ cadena2.toLowerCase());
             
         if (cadena1.contains("a")){
-            System.out.println("Indice de la primera aparición de 'a' : "+ cadena1.indexOf('a'));
-            System.out.println("Indice de la última aparición de 'a' : "+ cadena1.lastIndexOf('a'));
+            System.out.println("Indice de la primera aparición de 'a' es : "+ cadena1.indexOf('a'));
+            System.out.println("Indice de la última aparición de 'a' es : "+ cadena1.lastIndexOf('a'));
           }
        
                     
