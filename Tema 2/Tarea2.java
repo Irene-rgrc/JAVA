@@ -41,15 +41,14 @@ public class Tarea2 {
         
         System.out.println("----------TRIANGULO----------");
         System.out.print("Introduzca el primer lado : ");
-        num1 = entrada.nextInt();
+        num1 = entrada.nextDouble();
         System.out.print("Introduzca el otro lado : ");
-        num2 = entrada.nextInt();
+        num2 = entrada.nextDouble();
         System.out.print("Introduzca el angulo : ");
-        angulo = entrada.nextInt();
+        angulo = entrada.nextDouble();
             
         System.out.print("El área del triangulo es : "+ ((num1*num2*Math.sin((Math.toRadians(angulo)))/2)));
         System.out.println(" ");
         
-
     }
 }
