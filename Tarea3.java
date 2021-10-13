@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 public class Tarea3{
     public static void main(String[] args){
         System.out.println("Programa realizado por : ");
@@ -19,6 +18,9 @@ public class Tarea3{
         num1 = entrada.nextInt();
 
         //Salida de datos
+        if (num1 < 0) {
+            System.out.println("Error, negative number");
+        }
         if (num1<=3) {
             System.out.println("Primer cuatrimestre");
         }
@@ -61,3 +63,4 @@ public class Tarea3{
     }
     
 }
+
