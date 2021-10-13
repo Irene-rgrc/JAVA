@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 
-public class Tarea3 {
+public class Tarea3c {
     public static void main(String[] args){
         System.out.println("Programa realizado por : ");
         System.out.println("Irene Rodriguez García");
