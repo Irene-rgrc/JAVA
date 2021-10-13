@@ -48,7 +48,7 @@ public class Tarea3{
             System.out.println("f(" + num2 +") = " + x);
         }
         if (1 <= num2 && num2 < 3) {
-            x = ((num2)+ Math.sin(Math.toRadians(num2)));
+            x = ((num2)+ Math.sin((num2)));
             System.out.println("f(" + num2 +") = " + x);
         }
         if (3 <= num2 && num2 < 5) {
