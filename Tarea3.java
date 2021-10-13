@@ -18,9 +18,7 @@ public class Tarea3{
         num1 = entrada.nextInt();
 
         //Salida de datos
-        if (num1 < 0) {
-            System.out.println("Error, negative number");
-        }
+        
         if (num1<=3) {
             System.out.println("Primer cuatrimestre");
         }
@@ -42,6 +40,9 @@ public class Tarea3{
         num2 = entrada.nextDouble();
 
         //Salida
+        if (num2 < 0) {
+            System.out.println("Error, negative number");
+        }
         if (0 <= num2 && num2 < 1) {
             x = ((num2*num2)-5);
             System.out.println("f(" + num2 +") = " + x);
@@ -60,7 +61,6 @@ public class Tarea3{
         }
 
 
-    }
-    
+    }  
 }
 
