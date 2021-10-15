@@ -56,10 +56,10 @@ public class Tarea4{
                 a = 0;
                 
                 for (d = 1; d <= i; d++){
-                    do {
-                        System.out.println("Temperatura numero " + d);
-                        temperatura = entrada.nextDouble();
-                       } while (temperatura < 0);
+                    //do {
+                      //  System.out.println("Temperatura numero " + d);
+                       // temperatura = entrada.nextDouble();
+                       //} while (temperatura < 0);
                     
                     System.out.println("Temperatura numero " + d);
                     temperatura = entrada.nextDouble();
