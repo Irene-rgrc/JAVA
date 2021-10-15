@@ -102,17 +102,8 @@ public class Tarea4{
                 }
                 
                 break;
-            
-                
-                
-
-
-            
+            default:       
             } 
-            
-        } while(option != 5)
-        
-
-
+        } while(option != 5);
     }  
 }
