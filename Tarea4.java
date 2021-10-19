@@ -10,6 +10,8 @@ public class Tarea4{
         
         double agua, temperatura, temperaturaTotal, numero, multi;
         int option, i, d, a, azar, x;
+        final double tram1, tram2, tram3;
+        tram1 = 100; tram2 = 600; tram3 = 1100;
            
         do {
             System.out.println("Menu) : ");
@@ -19,7 +21,7 @@ public class Tarea4{
             System.out.println("4 Monstrar la tabla de multiplicar al reves");
             System.out.println("5. - Salir");
         
-            System.out.println("");
+            //System.out.println("");
             option = entrada.nextInt();
             
             
@@ -29,21 +31,22 @@ public class Tarea4{
                 System.out.println("Introduzca el consumo de agua en metros cubicos ");
                 agua = entrada.nextDouble();
                 
-                if (agua <= 100){
+                
+                if (agua <= tram1){
                     System.out.println("Primer tramo");
                     System.out.println("El coste del agua este mes es: " + ((agua)*(0.15)));    
                 }
-                else if ( agua <= 600){
+                else if ( agua <= tram2){
                     System.out.println("Segundo tramo");
-                    System.out.println("El coste del agua este mes es: " + ((agua)*(0.20)));   
+                    System.out.println("El coste del agua este mes es: " + (((agua-tram1)*(0.20))+15));   
                 }
-                else if (600 < agua && agua <= 1100){
+                else if (tram2 < agua && agua <= tram3){
                     System.out.println("Tercer tramo");
-                    System.out.println("El coste del agua este mes es: " + ((agua)*(0.35)));   
+                    System.out.println("El coste del agua este mes es: " + ((((agua-tram2))*(0.35))+115));   
                 }
                 else {
                     System.out.println("Cuarto tramo");
-                    System.out.println("El coste del agua este mes es: " + ((agua)*(0.35)));   
+                    System.out.println("El coste del agua este mes es: " + (((agua-(tram3))*(0.80))+290));   
                 }
                 
                 break;
@@ -80,19 +83,27 @@ public class Tarea4{
                 
                 System.out.println("Introduzca un numero");
                 numero = entrada.nextDouble();
-                int b = 0;
+                int b = 1;
                 while (azar != numero){
-                    System.out.println("INTENTO NÚMERO" + b);
+                    System.out.println("INTENTO NÚMERO " + b);
                     if (numero > azar){
                         System.out.println("El numero a adivinar es menor");
                     }
                     else{
                         System.out.println("El numero a adivinar es mayor");
                     }
-                    b+=1;  
+                    b+=1;
+                    if (b == 8){
+                        System.out.println("El numero era " + azar);
+                        System.out.println("HAS PERDIDO");
+                        break;
+                    }
+                    System.out.println("Introduzca un numero");
+                    numero = entrada.nextDouble();
                 }
-                System.out.println("ENORABUENA HAS ACERTADO");
-                
+                if ( azar == numero){
+                    System.out.println("ENORABUENA HAS ACERTADO");
+                }
                 break;
             case 4:
                 System.out.println("********TABLA DE MULTIPLICAR*********");
@@ -103,11 +114,12 @@ public class Tarea4{
                 } while (multi < 0);
                 
                 for(x = 10; x > 0; x--){
-                    System.out.println(multi + "*" + x);   
+                    System.out.println(multi + " * " + x + " = " + (multi*x));   
                 }
                 
                 break;
-            default:       
+            default:
+                System.out.println("Hasta luego");
             } 
         } while(option != 5);
     }  
