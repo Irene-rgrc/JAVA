@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Tarea4 {
@@ -52,17 +51,15 @@ public class Tarea4 {
 
                 case 2:
                     System.out.println("***********TEMPERATURAS**************");
-                    System.out.println("Introduzca el numero de temperatura (POSITIVIO) ");
-                    i = entrada.nextInt();
                     temperaturaTotal = 0;
                     a = 0;
+                    
+                    do {
+                    System.out.println("Introduzca el numero de temperatura (POSITIVIO) ");
+                    i = entrada.nextInt();
+                    } while (i < 0);
 
                     for (d = 1; d <= i; d++) {
-                        //do {
-                        //  System.out.println("Temperatura numero " + d);
-                        // temperatura = entrada.nextDouble();
-                        //} while (temperatura < 0);
-
                         System.out.println("Temperatura numero " + d);
                         temperatura = entrada.nextDouble();
                         //Comparacion de 0
