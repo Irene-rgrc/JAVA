@@ -25,6 +25,10 @@ line(110,150,120,160);
 //Nombre del programa no_loop
 float x = 0.0;
 
+void setup() {
+  sixe(200,200);
+}
+
 void draw(){
   background(204);
   x = x+ 0.1;
