@@ -120,6 +120,17 @@ void draw()
   rect(-40, -15, 80, 30);
   popMatrix();
   
+  //Draw velocity
+  fill(0,0,0);
+  pushMatrix();
+  translate(0,high);
+  translate(cos(-cannonTheta)*40, -sin(cannonTheta)*40);
+  rotate(-cannonTheta);
+  translate(0.0, -7.5);
+  rect(0,0,80*cannonV/cannonMaxV, 5);
+  popMatrix();
+  
+  
   //Start animation of the cannonball
   if (keyPressed && shooting == false)
   {
@@ -140,7 +151,7 @@ void draw()
       ballYAnalytical = ballYExplicit = ballYMidpoint = ballYVerlet = ballY;
       ballVYAnalytical = ballVYExplicit = ballVYMidpoint = ballVYVerlet = ballVY;
       firstStep = true;
-    } //<>//
+    }
   }
     
   //Animation
@@ -151,6 +162,9 @@ void draw()
       //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       //NUMERICAL INTEGRATION
       //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      ballVY += h * ballG;
+      ballX += h * ballVX;
+      ballY += h * ballVY;
 
       
       
