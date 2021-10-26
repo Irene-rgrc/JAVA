@@ -7,6 +7,7 @@ public class Prac5 {
         System.out.println("Autor : Irene Rodriguez García");
         System.out.println("********************************");
 
+        //variables de la funcion de valorar si es primo o no
         int option;
         int i, j, tope;
         boolean esPrimo;
@@ -25,6 +26,7 @@ public class Prac5 {
 
             switch (option) {
                 case 1:
+                    System.out.println("******** NÚMEROS PRIMOS **********");
                     //Meto los dos valores
                     int prim1,
                      prim2;
@@ -73,6 +75,26 @@ public class Prac5 {
 
                 case 2:
                     System.out.println("******* SUMA INTERVALOS PRIMOS **********");
+                    //Variables
+                    int num1, num2;
+                    //entrada
+                    while (num1 >= 10 && num1 <= 50) {
+                        System.out.println("Introduzca un número entre el 10 y 50");
+                        num1 = entrada.nextInt();
+                        if (num1 > 50 || num1 < 10){
+                            System.out.println("El primer número no esta entre 10 y 50");
+                        }
+                    }
+                    while (num2 >= 51 && num2 <= 100) {
+                        System.out.println("Introduzca un número entre el 51 y 100");
+                        num2 = entrada.nextInt();
+                        if (num2 > 51 || num2 < 100){
+                            System.out.println("El segundo número no esta entre 10 y 50");
+                        }
+                    }
+                    
+                    
+                    
 
                     break;
 
@@ -82,7 +104,7 @@ public class Prac5 {
                     break;
 
                 default:
-                    System.out.println("");
+                    System.out.println("Hasta luego.");
             }
         } while (option != 4);
     }
