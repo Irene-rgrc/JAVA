@@ -130,4 +130,3 @@ public class Prac5 {
         } while (option != 4);
     }
 }
-
