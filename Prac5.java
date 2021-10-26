@@ -76,7 +76,10 @@ public class Prac5 {
                 case 2:
                     System.out.println("******* SUMA INTERVALOS PRIMOS **********");
                     //Variables
-                    int num1,num2;
+                    int num1,
+                     num2;
+                    int lista;
+                    lista = 0;
                     // Entrada
                     System.out.println("Introduzca un número entre el 10 y 50");
                     num1 = entrada.nextInt();
@@ -107,9 +110,12 @@ public class Prac5 {
                             }
                             j++;
                         }
+                        if (esPrimo == true) {
+                            lista = lista + num1;
+                        }
                     }
-                    System.out.println("Entre " + num1 + " y "+ num2 + " la suma de primos es " + );
-                    
+
+                    System.out.println("Entre " + num1 + " y " + num2 + " la suma de primos es " + lista);
 
                     break;
 
@@ -121,6 +127,8 @@ public class Prac5 {
                 default:
                     System.out.println("Hasta luego.");
             }
+
         } while (option != 4);
     }
 }
+
