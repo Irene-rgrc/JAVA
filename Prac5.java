@@ -76,24 +76,39 @@ public class Prac5 {
                 case 2:
                     System.out.println("******* SUMA INTERVALOS PRIMOS **********");
                     //Variables
-                    int num1, num2;
-                    //entrada
-                    while (num1 >= 10 && num1 <= 50) {
+                    int num1,num2;
+                    // Entrada
+                    System.out.println("Introduzca un número entre el 10 y 50");
+                    num1 = entrada.nextInt();
+                    while (num1 < 10 || num1 > 50) {
+                        System.out.println("El primer número no esta entre 10 y 50");
                         System.out.println("Introduzca un número entre el 10 y 50");
                         num1 = entrada.nextInt();
-                        if (num1 > 50 || num1 < 10){
-                            System.out.println("El primer número no esta entre 10 y 50");
-                        }
                     }
-                    while (num2 >= 51 && num2 <= 100) {
+                    System.out.println("Introduzca un número entre el 51 y 100");
+                    num2 = entrada.nextInt();
+                    while (num2 < 51 || num2 > 100) {
+                        System.out.println("El segundo número no esta entre 10 y 50");
                         System.out.println("Introduzca un número entre el 51 y 100");
                         num2 = entrada.nextInt();
-                        if (num2 > 51 || num2 < 100){
-                            System.out.println("El segundo número no esta entre 10 y 50");
+                    }
+                    // Salida
+                    for (i = num1; i <= num2; i++) {
+                        esPrimo = true;
+                        j = 2;
+                        for (j = 2; j < i; j++) {
+                            if (i % j == 0) {
+                                esPrimo = false;
+                            }
+                        }
+                        while (esPrimo && j < i) {
+                            if (i % j == 0) {
+                                esPrimo = false;
+                            }
+                            j++;
                         }
                     }
-                    
-                    
+                    System.out.println("Entre " + num1 + " y "+ num2 + " la suma de primos es " + );
                     
 
                     break;
