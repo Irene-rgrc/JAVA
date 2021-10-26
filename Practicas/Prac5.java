@@ -1,3 +1,5 @@
+package Homework;
+
 import java.util.Scanner;
 
 public class Prac5 {
@@ -70,26 +72,26 @@ public class Prac5 {
 
                     }
                     System.out.println("Entre " + prim1 + " y " + prim2 + " hay " + b);
+                    System.out.println(" ");
 
                     break;
 
                 case 2:
                     System.out.println("******* SUMA INTERVALOS PRIMOS **********");
                     //Variables
-                    int num1,
-                     num2;
+                    int num1, num2, limi1, limi2, limi3, limi4; limi1 = 10; limi2 = 50; limi3 = 51; limi4 = 100;
                     int lista; lista = 0;
                     // Entrada
                     System.out.println("Introduzca un número entre el 10 y 50");
                     num1 = entrada.nextInt();
-                    while (num1 < 10 || num1 > 50) {
+                    while (num1 < limi1 || num1 > limi2) {
                         System.out.println("El primer número no esta entre 10 y 50");
                         System.out.println("Introduzca un número entre el 10 y 50");
                         num1 = entrada.nextInt();
                     }
                     System.out.println("Introduzca un número entre el 51 y 100");
                     num2 = entrada.nextInt();
-                    while (num2 < 51 || num2 > 100) {
+                    while (num2 < limi3 || num2 > limi4) {
                         System.out.println("El segundo número no esta entre 10 y 50");
                         System.out.println("Introduzca un número entre el 51 y 100");
                         num2 = entrada.nextInt();
@@ -115,11 +117,62 @@ public class Prac5 {
                     }
 
                     System.out.println("Entre " + num1 + " y " + num2 + " la suma de primos es " + lista);
+                    System.out.println(" ");
 
                     break;
 
                 case 3:
                     System.out.println("******* GASTOS DE COMPRAS DE HOY **********");
+                    // Variables
+                    int numProductos, totalProductos; numProductos = 0; totalProductos = 0;
+                    double totalPrecio, precio ; totalPrecio = 0; precio = 0;
+                    int choose;
+                    int lim1, lim2, lim3; lim1 = 50; lim2 = 100; lim3 = 150; 
+
+                    do {
+                        System.out.println("Introduzca el numero de productos a ese precio");
+                        numProductos = entrada.nextInt();   
+                    } while (numProductos < 0);
+                    totalProductos += numProductos;
+                    do {
+                        System.out.println("Introduzca el numero de productos a ese precio");
+                        precio = entrada.nextDouble();   
+                    } while (precio <= 0);
+                    totalPrecio += (precio*numProductos);
+
+                    System.out.println("Quieres introducir mas productos? 1 Si, 2 No");
+                    choose = entrada.nextInt();
+                    while (choose != 2) {
+                        do {
+                            System.out.println("Introduzca el numero de productos a ese precio");
+                            numProductos = entrada.nextInt();   
+                        } while (numProductos < 0);
+                        totalProductos += numProductos;
+
+                        do {
+                            System.out.println("Introduzca el numero de productos a ese precio");
+                            precio = entrada.nextDouble();   
+                        } while (precio <= 0);
+                        
+                        totalPrecio += (precio*numProductos);
+    
+                        System.out.println("Quieres introducir mas productos? 1 Si, 2 No");
+                        choose = entrada.nextInt();
+                    }
+                    System.out.println("El numero de productos es: " + totalProductos);
+                    System.out.println("El importe gastado hoy es: " + totalPrecio);
+
+                    if (totalPrecio <= lim1){
+                        System.out.println("Gasto contenido");
+                    } else if (totalPrecio > lim1 && totalPrecio <= lim2){
+                        System.out.println("Si era necesario...");
+                    } else if (totalPrecio > lim2 && totalPrecio <= lim3){
+                        System.out.println("Has gastado mucho");
+                    } else {
+                        System.out.println("Te has pasado bacalao");
+                    }
+
+                    System.out.println(" ");
 
                     break;
 
@@ -130,3 +183,4 @@ public class Prac5 {
         } while (option != 4);
     }
 }
+
