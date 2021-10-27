@@ -1,5 +1,3 @@
-package Homework;
-
 import java.util.Scanner;
 
 public class Prac5 {
@@ -71,7 +69,7 @@ public class Prac5 {
                         }
 
                     }
-                    System.out.println("Entre " + prim1 + " y " + prim2 + " hay " + b);
+                    System.out.println("Entre " + prim2 + " y " + prim1 + " hay " + b + " primos.");
                     System.out.println(" ");
 
                     break;
@@ -183,4 +181,3 @@ public class Prac5 {
         } while (option != 4);
     }
 }
-
