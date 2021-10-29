@@ -21,13 +21,7 @@ public class Prac6 {
     }
 
     public static void mostrarSinceros(int base, int tope) {
-        int b = 0;
         int i = base;
-        if (tope < base) {
-            tope = b;
-            tope = base;
-            base = b;
-        }
         while (i <= tope) {
             if (sumaEnteros(i) == base) {
                 System.out.print(i + ", ");
@@ -66,7 +60,7 @@ public class Prac6 {
                     do {
                         System.out.println("Introduzca un número mayor que " + num1);
                         num2 = entrada.nextInt();
-                    } while (num2 > num1);
+                    } while (num2 < num1);
                     //Salida de datos
                     mostrarSinceros(num1, num2);
                     break;
