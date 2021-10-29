@@ -30,13 +30,14 @@ public class Prac6 {
         }
         while (i <= tope) {
             if (sumaEnteros(i) == base) {
-                System.out.println(i);
+                System.out.print(i + ", ");
             } else {
-                System.out.println('-');
+                System.out.print('-');
             }
             i += base;
 
         }
+        System.out.println(" ");
     }
         /**
          * @param args the command line arguments
