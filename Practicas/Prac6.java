@@ -32,7 +32,7 @@ public class Prac6 {
             if (sumaEnteros(i) == base) {
                 System.out.print(i + ", ");
             } else {
-                System.out.print('-');
+                System.out.print("");
             }
             i += base;
 
@@ -57,9 +57,18 @@ public class Prac6 {
 
             switch (option) {
                 case 1:
-                    System.out.println("******** MULTIPLOS SINCEROS**********");
-                    mostrarSinceros(9, 30);
-
+                    int num1, num2; //Num1 base, num2 tope
+                    //Entrada de datos
+                    do {
+                        System.out.println("Introduzca un número positivo de una cifra: ");
+                        num1 = entrada.nextInt();
+                    } while (num1 < 0);
+                    do {
+                        System.out.println("Introduzca un número mayor que " + num1);
+                        num2 = entrada.nextInt();
+                    } while (num2 > num1);
+                    //Salida de datos
+                    mostrarSinceros(num1, num2);
                     break;
 
                 case 2:
