@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 /**
  *
  * @author i.rodriguezga.2021
@@ -79,7 +78,6 @@ public class Prac6 {
                     break;
 
                 case 2:
-                    System.out.println("******* NUMEROS COLEGAS **********");
                     int num01, num02;
                     do {
                         System.out.println("Introduzca un número mayor que cero: ");
@@ -100,5 +98,4 @@ public class Prac6 {
 
         } while (option != 3);
     }
-
 }
