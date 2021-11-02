@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 import java.util.Scanner;
 
 /**
@@ -11,13 +6,33 @@ import java.util.Scanner;
  */
 public class Prac6 {
 
-    public static int sumaEnteros(int a) { //N es la longuitud de cifras que tiene q la voy a declar en otra sentencia en el main
+    public static int sumaEnteros(int a) {
         int cifraSuma = 0;
         while (a > 0) {
             cifraSuma += a % 10;
             a = a / 10;
         }
         return cifraSuma;
+    }
+
+    
+    public static void comparacionNumero(int a, int b) {
+        int numi = a;
+        int primerDigito = 0;
+        int ultimoDigito = 0;
+
+        ultimoDigito = a % 10;
+
+        while (a != 0) {
+            primerDigito = a % 10;
+            a /= 10;
+        }
+ 
+        if (primerDigito == b && ultimoDigito == b) {
+            System.out.println("El numero " + numi + " es colega de " + b);
+        } else {
+            System.out.println("El numero " + numi + " no es colega de " + b);
+        }
     }
 
     public static void mostrarSinceros(int base, int tope) {
@@ -33,9 +48,8 @@ public class Prac6 {
         }
         System.out.println(" ");
     }
-        /**
-         * @param args the command line arguments
-         */
+
+
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
 
@@ -46,12 +60,11 @@ public class Prac6 {
             System.out.println("2- Números colegas");
             System.out.println("3- Salir");
 
-            //System.out.println("");
             option = entrada.nextInt();
 
             switch (option) {
                 case 1:
-                    int num1, num2; //Num1 base, num2 tope
+                    int num1, num2;
                     //Entrada de datos
                     do {
                         System.out.println("Introduzca un número positivo de una cifra: ");
@@ -67,6 +80,17 @@ public class Prac6 {
 
                 case 2:
                     System.out.println("******* NUMEROS COLEGAS **********");
+                    int num01, num02;
+                    do {
+                        System.out.println("Introduzca un número mayor que cero: ");
+                        num01 = entrada.nextInt();
+                    } while (num01 < 0);
+                    do {
+                        System.out.println("Introduzca un número positivo de una cifra: ");
+                        num02 = entrada.nextInt();
+                    } while (num02 < 0 && num02 < 10);
+
+                    comparacionNumero(num01, num02);
 
                     break;
 
@@ -76,6 +100,5 @@ public class Prac6 {
 
         } while (option != 3);
     }
-}
 
-// TODO code application logic here}
+}
