@@ -14,7 +14,6 @@ public class Prac6 {
         return cifraSuma;
     }
 
-    
     public static void comparacionNumero(int a, int b) {
         int numi = a;
         int primerDigito = 0;
@@ -91,9 +90,13 @@ public class Prac6 {
                     comparacionNumero(num01, num02);
 
                     break;
+                
+                case 3:
+                    System.out.println("Hasta luego.");
+                    break;
 
                 default:
-                    System.out.println("Hasta luego.");
+                    System.out.println("Opción no valida.");
             }
 
         } while (option != 3);
