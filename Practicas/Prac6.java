@@ -52,11 +52,15 @@ public class Prac6 {
         Scanner entrada = new Scanner(System.in);
 
         int option;
+        
+        System.out.println("PRACTICA DE SUBPROGRAMAS por IRENE RODRIGUEZ GARCIA");
+        System.out.println("---------------------------------------------------");
 
         do {
             System.out.println("1- Multiplos sinceros");
             System.out.println("2- Números colegas");
             System.out.println("3- Salir");
+            System.out.println("Introduzca una opcion");
 
             option = entrada.nextInt();
 
@@ -85,7 +89,7 @@ public class Prac6 {
                     do {
                         System.out.println("Introduzca un número positivo de una cifra: ");
                         num02 = entrada.nextInt();
-                    } while (num02 < 0 && num02 < 10);
+                    } while (num02 > 0 && num02 > 10);
 
                     comparacionNumero(num01, num02);
 
