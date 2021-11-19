@@ -2,6 +2,21 @@ import java.util.Scanner;
 
 public class Prac8 {
 
+    public static int insertarDatos(int[] array, int tope, Scanner entrada) {
+        int seguir;
+        double a;
+        System.out.println("¿Quieres introducir mas números?");
+        seguir = entrada.nextInt();
+        while (seguir == 1) {
+            for (tope<notas.length; tope++) {
+                a = entrada.nextDouble();
+                notas[tope] = a;
+                System.out.println("¿Quieres introducir mas números?");
+                seguir = entrada.nextInt();
+            }
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("********************************");
         System.out.println("Autor : Irene Rodriguez García");
@@ -33,19 +48,6 @@ public class Prac8 {
 
             switch (option) {
                 case 1:
-                    int seguir;
-                    double a;
-
-                    System.out.println("¿Quieres introducir mas números?");
-                    seguir = entrada.nextInt();
-                    while (seguir == 1) {
-                        for (tope<notas.length; tope++) {
-                            a = entrada.nextDouble();
-                            notas[tope] = a;
-                            System.out.println("¿Quieres introducir mas números?");
-                            seguir = entrada.nextInt();
-                        }
-                    }
 
                     break;
 
