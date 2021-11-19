@@ -8,8 +8,10 @@ public class Prac8 {
         System.out.println("********************************");
 
         //variables de la funcion de valorar si es primo o no
-        int option;
+        int option; int tope = 0;
         
+        double [] notas=new double[20];
+        int [] alumnos=new int[20];
 
         Scanner entrada = new Scanner(System.in);
 
