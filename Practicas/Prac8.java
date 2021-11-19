@@ -2,19 +2,16 @@ import java.util.Scanner;
 
 public class Prac8 {
 
-    public static int insertarDatos(int[] array, int tope, Scanner entrada) {
+    public static int insertarDatos(double[] array, int tope, Scanner entrada) {
         int seguir;
-        double a;
         System.out.println("¿Quieres introducir mas números?");
         seguir = entrada.nextInt();
-        while (seguir == 1) {
-            for (tope<notas.length; tope++) {
-                a = entrada.nextDouble();
-                notas[tope] = a;
-                System.out.println("¿Quieres introducir mas números?");
-                seguir = entrada.nextInt();
-            }
-        }
+        while (seguir == 1 && tope < array.length) {
+            array[tope] = entrada.nextDouble();
+            System.out.println("¿Quieres introducir mas números?");
+            seguir = entrada.nextInt();
+            tope++;
+        } return tope;
     }
 
     public static void main(String[] args) {
