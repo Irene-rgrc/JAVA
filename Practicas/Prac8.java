@@ -45,6 +45,7 @@ public class Prac8 {
 
             switch (option) {
                 case 1:
+                    tope = insertarDatos(notas, tope, entrada);
 
                     break;
 
