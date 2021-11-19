@@ -8,10 +8,11 @@ public class Prac8 {
         System.out.println("********************************");
 
         //variables de la funcion de valorar si es primo o no
-        int option; int tope = 0;
-        
-        double [] notas=new double[20];
-        int [] alumnos=new int[20];
+        int option;
+        int tope = 0;
+
+        double[] notas = new double[20];
+        int[] alumnos = new int[20];
 
         Scanner entrada = new Scanner(System.in);
 
@@ -26,14 +27,26 @@ public class Prac8 {
             System.out.println("7 Mostrar la nota del alumno con peor nota");
             System.out.println("8 Modificar todas las notas en un porcentaje,");
             System.out.println("9 Salir ");
-          
 
             //System.out.println("");
             option = entrada.nextInt();
 
             switch (option) {
                 case 1:
-                   
+                    int seguir;
+                    double a;
+
+                    System.out.println("¿Quieres introducir mas números?");
+                    seguir = entrada.nextInt();
+                    while (seguir == 1) {
+                        for (tope<notas.length; tope++) {
+                            a = entrada.nextDouble();
+                            notas[tope] = a;
+                            System.out.println("¿Quieres introducir mas números?");
+                            seguir = entrada.nextInt();
+                        }
+                    }
+
                     break;
 
                 case 2:
@@ -41,15 +54,15 @@ public class Prac8 {
                     break;
 
                 case 3:
-                    
+
                     break;
-                    
+
                 case 4:
-                    
+
                     break;
-                    
+
                 case 5:
-                   
+
                     break;
 
                 case 6:
@@ -57,12 +70,12 @@ public class Prac8 {
                     break;
 
                 case 7:
-                    
+
                     break;
-                    
+
                 case 8:
-                    
-                    break;  
+
+                    break;
 
                 default:
                     System.out.println("Hasta luego.");
