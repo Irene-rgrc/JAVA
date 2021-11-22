@@ -4,14 +4,23 @@ public class Prac8 {
 
     public static int insertarDatos(double[] array, int tope, Scanner entrada) {
         int seguir;
-        System.out.println("¿Quieres introducir mas números?");
+        System.out.println("¿Quieres introducir mas números? 1 Si 2 No");
         seguir = entrada.nextInt();
         while (seguir == 1 && tope < array.length) {
             array[tope] = entrada.nextDouble();
-            System.out.println("¿Quieres introducir mas números?");
+            System.out.println("¿Quieres introducir mas números? 1 Si 2 No");
             seguir = entrada.nextInt();
             tope++;
         } return tope;
+    }
+
+    public static void mostrarDatos(double[] array, int tope) {
+        System.out.println("Las notas son:");
+        for (int i = 0; i < tope; i++) {
+            System.out.print(array[i] + "\t");
+            
+        }
+        System.out.println("");
     }
 
     public static void main(String[] args) {
@@ -46,11 +55,10 @@ public class Prac8 {
             switch (option) {
                 case 1:
                     tope = insertarDatos(notas, tope, entrada);
-
                     break;
 
                 case 2:
-
+                    mostrarDatos(notas, tope);
                     break;
 
                 case 3:
