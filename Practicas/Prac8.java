@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class Prac8 {
@@ -11,17 +12,18 @@ public class Prac8 {
             System.out.println("¿Quieres introducir mas números? 1 Si 2 No");
             seguir = entrada.nextInt();
             tope++;
-        } return tope;
+        }
+        return tope;
     }
 
     public static void mostrarDatos(double[] array, int tope) {
         //System.out.println("Las notas son:");
         for (int i = 0; i < tope; i++) {
-            System.out.print("La nota del alumno ["+ (i+1) + "]: " + array[i] + "\t");    
+            System.out.print("La nota del alumno [" + (i + 1) + "]: " + array[i] + "\t");
         }
         System.out.println("");
     }
-    
+
     public static int buscarDato(double[] array, int tope, double dato) {
         boolean encontrado = false;
         int i = 0;
@@ -33,22 +35,23 @@ public class Prac8 {
             }
         }
         if (encontrado) {
-            System.out.println("Encontrado en la posicion: "+ i);
+            System.out.println("Encontrado en la posicion: " + i);
         } else {
             System.out.println("No encontrado");
         }
         return i;
     }
-    
+
     public static double buscarAlumno(double[] array, int dato) {
         double nota = 0;
-        for (int i=0; i<=dato; i++){
-            if (dato == i+1){
-                System.out.println("El alumno [" + dato + "] tiene una nota de "+ array[i]);
+        for (int i = 0; i <= dato; i++) {
+            if (dato == i + 1) {
+                System.out.println("El alumno [" + dato + "] tiene una nota de " + array[i]);
             }
-        } return nota;
+        }
+        return nota;
     }
-    
+
     public static double maxArray(double[] array, int tope) {
         double max = array[0];
         for (int i = 1; i < tope; i++) {
@@ -58,57 +61,79 @@ public class Prac8 {
         }
         return max;
     }
-    
-    public static void mostrarEstadistica(double[] arrayNotas,int tope) {
+
+    public static void mostrarEstadistica(double[] arrayNotas, int tope) {
         //System.out.println("Las notas son:");
         //La media de la clase.
-        double media = 0; double max = 0; int posicion = 0;
+        double media = 0;
+        double max = 0;
+        int posicion = 0;
         for (int i = 0; i < tope; i++) {
-            media = media +arrayNotas[i];    
+            media = media + arrayNotas[i];
         }
-        media = media/(tope);
+        media = media / (tope);
         System.out.println("La media de la clase es: " + media);
-        
+
         //El porcentaje de aprobados
-        int suficiente = 0;int notable = 0; int sobresaliente = 0;
+        int suficiente = 0;
+        int notable = 0;
+        int sobresaliente = 0;
         for (int i = 0; i < tope; i++) {
-            if (arrayNotas[i] >= 5){
+            if (arrayNotas[i] >= 5) {
                 suficiente++;
-            } 
-            else if (arrayNotas[i] >= 7){
+            } else if (arrayNotas[i] >= 7) {
                 notable++;
-            } 
-            else{
+            } else {
                 sobresaliente++;
-            } 
+            }
         }
-        System.out.println("El porcentaje de aprobados es: " + (suficiente/tope)*100);
-        System.out.println("El porcentaje de notables es: " + (notable/tope)*100);
-        System.out.println("El porcentaje de sobresalientes es: " + (sobresaliente/tope)*100);
-        
+        System.out.println("El porcentaje de aprobados es: " + (suficiente / tope) * 100);
+        System.out.println("El porcentaje de notables es: " + (notable / tope) * 100);
+        System.out.println("El porcentaje de sobresalientes es: " + (sobresaliente / tope) * 100);
+
         //Nota maxima
-        max = maxArray(arrayNotas,tope);
+        max = maxArray(arrayNotas, tope);
         posicion = buscarDato(arrayNotas, tope, max);
-        System.out.println("El alumno " + (posicion+1) + " ha obtenido " + max );
-        
-        
+        System.out.println("El alumno " + (posicion + 1) + " ha obtenido " + max);
+
     }
-        
+
     public static double modificarDatos(double[] array, int tope, Scanner entrada) {
-        double nota, nuevaNota = 0; int dato = 0;
+        double nota, nuevaNota = 0;
+        int dato = 0;
         //Buscar nota del alumno
         System.out.println("Introduzca número de matricula: ");
         dato = entrada.nextInt();
-        nota = buscarAlumno(array,tope);
-        System.out.println("La nota actual del alumno "+dato+" es "+ nota);
+        nota = buscarAlumno(array, tope);
+        System.out.println("La nota actual del alumno " + dato + " es " + nota);
         //Modificar nota del alumno
         System.out.println("Introduzca la nueva nota: ");
-        array[dato-1]=entrada.nextDouble();
-        nuevaNota = array[dato-1];
+        array[dato - 1] = entrada.nextDouble();
+        nuevaNota = array[dato - 1];
         return nuevaNota;
     }
-    
-    public static void main(String[] args) {
+
+    public static void mostrarEscrito(double[] arrayNotas, int tope, Scanner entrada) {
+        for (int i = 0; i < tope; i++) {
+            if (arrayNotas[i] < 5) {
+                System.out.println("El alumno " + (i + 1) + " ha obtenido un suspenso");
+            } else if (arrayNotas[i] >= 5 && arrayNotas[i] < 7) {
+                System.out.println("El alumno " + (i + 1) + " ha obtenido un aprobado");
+            } else if (arrayNotas[i] >= 7 && arrayNotas[i] < 9) {
+                System.out.println("El alumno " + (i + 1) + " ha obtenido un notable");
+            } else if (arrayNotas[i] >= 9 && arrayNotas[i] < 9.6) {
+                System.out.println("El alumno " + (i + 1) + " ha obtenido un sobresaliente");
+            } else {
+                System.out.println("El alumno " + (i + 1) + " ha obtenido una matricula de honor");
+            }
+
+        }
+
+    }
+
+
+
+public static void main(String[] args) {
         System.out.println("********************************");
         System.out.println("Autor : Irene Rodriguez García");
         System.out.println("********************************");
@@ -171,7 +196,8 @@ public class Prac8 {
 
                 case 6:
                     System.out.println("*******MOSTRAR LA NOTA ESCRITA**********");
-                    
+                    mostrarEscrito(notas, tope, entrada);
+
 
                     break;
 
