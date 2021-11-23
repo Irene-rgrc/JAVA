@@ -38,7 +38,16 @@ public class Prac8 {
             System.out.println("No encontrado");
         }
         return i;
-    } 
+    }
+    
+    public static void buscarAlumno(double[] array, int dato) {
+        for (int i=0; i<=dato; i++){
+            if (dato == i+1){
+                System.out.print("El alumno [" + dato + "] tiene una nota de "+ array[i]);
+            }
+        }
+    }
+    
     
     public static double maxArray(double[] array, int tope) {
         double max = array[0];
@@ -94,6 +103,7 @@ public class Prac8 {
         //variables de la funcion de valorar si es primo o no
         int option;
         int tope = 0;
+        int dato = 0;
 
         double[] notas = new double[20];
 
@@ -132,6 +142,10 @@ public class Prac8 {
                     break;
 
                 case 4:
+                    System.out.println("*******MONSTRAR NOTA DE ALUMNO**********");
+                    System.out.println("Introduzca número de matricula: ");
+                    dato = entrada.nextInt();
+                    buscarAlumno(notas,dato);
 
                     break;
 
