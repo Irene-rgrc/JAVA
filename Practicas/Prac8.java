@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Prac8 {
@@ -17,14 +16,27 @@ public class Prac8 {
         return tope;
     }
 
-    public static void mostrarPorcentaje(double[] array, int tope, Scanner entrada) { 
-        System.out.print("¿En que porcentaje quieres modificar la nota?");
-        double pocent = entrada.nextDouble();
-        pocent = pocent/100;
+     
+    public static void ModificarPorcentaje(double[] array, int tope, Scanner entrada) {
+        System.out.println("Dime el porcentaje en el que quieres modificar la nota");
+        int dato;
+        double modificacion;
+        dato = entrada.nextInt();
+        dato = dato / 100;
+
         for (int i = 0; i < tope; i++) {
-            
-    
-            System.out.println("La nota del alumno [" + (i + 1) + "]: " + ((array[i] *pocent) + pocent) + "%");
+            if (dato <= 100 && dato >= 0) {
+                modificacion = (dato / 100) * array[i] + array[i];
+                System.out.println("El alumno " + array[i] + " ha sido modificada en " + modificacion);
+            } else {
+                if (dato > 100 && dato < -100) {
+                    System.out.println("Porcentaje no vÃ¡lido");
+                }
+                if (dato < 0 && dato < -100) {
+                    modificacion = ((dato / 10) - 10) * array[i] + array[i];
+                    System.out.println("El alumno " + array[i] + " ha sido modificada en " + modificacion);
+                }
+            }
         }
     }
 
@@ -222,7 +234,7 @@ public class Prac8 {
 
             case 8:
                 System.out.println("*******MOSTRAR LAS NOTAS DE PORCENTAJE**********");
-                mostrarPorcentaje(notas, tope, entrada);
+                ModificarPorcentaje(notas, tope, entrada);
                 break;
 
             default:
