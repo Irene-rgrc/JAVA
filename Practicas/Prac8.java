@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Prac8 {
 
-    public static double insertarDatos(double[] array, int tope, Scanner entrada) {
+    public static int insertarDatos(double[] array, int tope, Scanner entrada) {
         int seguir;
         System.out.println("¿Quieres introducir mas números? 1 Si 2 No");
         seguir = entrada.nextInt();
@@ -17,12 +17,74 @@ public class Prac8 {
     public static void mostrarDatos(double[] array, int tope) {
         //System.out.println("Las notas son:");
         for (int i = 0; i < tope; i++) {
-            System.out.print("La nota del alumno ["+ i+ "]: " + array[i] + "\t");
-            
-            
+            System.out.print("La nota del alumno ["+ (i+1) + "]: " + array[i] + "\t");    
         }
         System.out.println("");
     }
+    
+    public static int buscarDato(double[] array, int tope, double dato) {
+        boolean encontrado = false;
+        int i = 0;
+        while (i < tope && !encontrado) {
+            if (dato == array[i]) {
+                encontrado = true;
+            } else {
+                i++;
+            }
+        }
+        if (encontrado) {
+            System.out.println("Encontrado en la posicion: "+ i);
+        } else {
+            System.out.println("No encontrado");
+        }
+        return i;
+    } 
+    
+    public static double maxArray(double[] array, int tope) {
+        double max = array[0];
+        for (int i = 1; i < tope; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        return max;
+    }
+    
+    public static void mostrarEstadistica(double[] arrayNotas,int tope) {
+        //System.out.println("Las notas son:");
+        //La media de la clase.
+        double media = 0; double max = 0; int posicion = 0;
+        for (int i = 0; i < tope; i++) {
+            media = media +arrayNotas[i];    
+        }
+        media = media/(tope);
+        System.out.println("La media de la clase es: " + media);
+        
+        //El porcentaje de aprobados
+        int suficiente = 0;int notable = 0; int sobresaliente = 0;
+        for (int i = 0; i < tope; i++) {
+            if (arrayNotas[i] >= 5){
+                suficiente++;
+            } 
+            if (arrayNotas[i] >= 7){
+                notable++;
+            } 
+            if (arrayNotas[i] >= 9){
+                sobresaliente++;
+            } 
+        }
+        System.out.println("El porcentaje de aprobados es: " + (suficiente/tope)*100);
+        System.out.println("El porcentaje de notables es: " + (notable/tope)*100);
+        System.out.println("El porcentaje de sobresalientes es: " + (sobresaliente/tope)*100);
+        
+        //Nota maxima
+        max = maxArray(arrayNotas,tope);
+        posicion = buscarDato(arrayNotas, tope, max);
+        System.out.println("El alumno " + (posicion+1) + " ha obtenido " + max );
+        
+        
+    }
+        
 
     public static void main(String[] args) {
         System.out.println("********************************");
@@ -34,7 +96,6 @@ public class Prac8 {
         int tope = 0;
 
         double[] notas = new double[20];
-        int[] alumnos = new int[20];
 
         Scanner entrada = new Scanner(System.in);
 
@@ -56,7 +117,7 @@ public class Prac8 {
             switch (option) {
                 case 1:
                     System.out.println("*******INTRODUCIR NOTAS**********");
-                    insertarDatos(notas, tope, entrada);
+                    tope = insertarDatos(notas, tope, entrada);
                     break;
 
                 case 2:
@@ -65,6 +126,8 @@ public class Prac8 {
                     break;
 
                 case 3:
+                    System.out.println("*******CALCULAR ESTADISTICAS**********");
+                    mostrarEstadistica(notas,tope);
 
                     break;
 
