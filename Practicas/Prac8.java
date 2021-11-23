@@ -244,3 +244,4 @@ public class Prac8 {
         } while (option != 9);
     }
 }
+
