@@ -95,12 +95,12 @@ public class Prac8 {
     }
         
     public static double modificarDatos(double[] array, int tope, Scanner entrada) {
-        double nota = 0, nuevaNota = 0; int dato = 0;
+        double nota, nuevaNota = 0; int dato = 0;
         //Buscar nota del alumno
         System.out.println("Introduzca número de matricula: ");
         dato = entrada.nextInt();
         nota = buscarAlumno(array,tope);
-        System.out.println("La nota actual del alumno "+dato+" es "+nota);
+        System.out.println("La nota actual del alumno "+dato+" es "+ nota);
         //Modificar nota del alumno
         System.out.println("Introduzca la nueva nota: ");
         array[dato-1]=entrada.nextDouble();
@@ -170,6 +170,8 @@ public class Prac8 {
                     break;
 
                 case 6:
+                    System.out.println("*******MOSTRAR LA NOTA ESCRITA**********");
+                    
 
                     break;
 
