@@ -40,14 +40,14 @@ public class Prac8 {
         return i;
     }
     
-    public static void buscarAlumno(double[] array, int dato) {
+    public static double buscarAlumno(double[] array, int dato) {
+        double nota = 0;
         for (int i=0; i<=dato; i++){
             if (dato == i+1){
-                System.out.print("El alumno [" + dato + "] tiene una nota de "+ array[i]);
+                System.out.println("El alumno [" + dato + "] tiene una nota de "+ array[i]);
             }
-        }
+        } return nota;
     }
-    
     
     public static double maxArray(double[] array, int tope) {
         double max = array[0];
@@ -94,7 +94,19 @@ public class Prac8 {
         
     }
         
-
+    public static double modificarDatos(double[] array, int tope, Scanner entrada) {
+        double nota = 0, nuevaNota = 0; int dato = 0;
+        //Buscar nota del alumno
+        System.out.println("Introduzca número de matricula: ");
+        dato = entrada.nextInt();
+        nota = buscarAlumno(array,tope);
+        //Modificar nota del alumno
+        System.out.println("Introduzca la nueva nota: ");
+        array[dato-1]=entrada.nextDouble();
+        nuevaNota = array[dato-1];
+        return nuevaNota;
+    }
+    
     public static void main(String[] args) {
         System.out.println("********************************");
         System.out.println("Autor : Irene Rodriguez García");
@@ -104,6 +116,7 @@ public class Prac8 {
         int option;
         int tope = 0;
         int dato = 0;
+        double nuevaNota;
 
         double[] notas = new double[20];
 
@@ -150,6 +163,8 @@ public class Prac8 {
                     break;
 
                 case 5:
+                    System.out.println("*******MODIFICAR NOTA**********");
+                    nuevaNota = modificarDatos(notas, tope, entrada);
 
                     break;
 
