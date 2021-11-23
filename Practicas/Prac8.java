@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Prac8 {
 
-    public static int insertarDatos(double[] array, int tope, Scanner entrada) {
+    public static double insertarDatos(double[] array, int tope, Scanner entrada) {
         int seguir;
         System.out.println("¿Quieres introducir mas números? 1 Si 2 No");
         seguir = entrada.nextInt();
@@ -15,9 +15,10 @@ public class Prac8 {
     }
 
     public static void mostrarDatos(double[] array, int tope) {
-        System.out.println("Las notas son:");
+        //System.out.println("Las notas son:");
         for (int i = 0; i < tope; i++) {
-            System.out.print(array[i] + "\t");
+            System.out.print("La nota del alumno ["+ i+ "]: " + array[i] + "\t");
+            
             
         }
         System.out.println("");
@@ -54,10 +55,12 @@ public class Prac8 {
 
             switch (option) {
                 case 1:
-                    tope = insertarDatos(notas, tope, entrada);
+                    System.out.println("*******INTRODUCIR NOTAS**********");
+                    insertarDatos(notas, tope, entrada);
                     break;
 
                 case 2:
+                    System.out.println("*******MOSTRAR DATOS**********");
                     mostrarDatos(notas, tope);
                     break;
 
