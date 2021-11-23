@@ -75,10 +75,10 @@ public class Prac8 {
             if (arrayNotas[i] >= 5){
                 suficiente++;
             } 
-            if (arrayNotas[i] >= 7){
+            else if (arrayNotas[i] >= 7){
                 notable++;
             } 
-            if (arrayNotas[i] >= 9){
+            else{
                 sobresaliente++;
             } 
         }
