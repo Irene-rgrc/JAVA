@@ -100,6 +100,7 @@ public class Prac8 {
         System.out.println("Introduzca número de matricula: ");
         dato = entrada.nextInt();
         nota = buscarAlumno(array,tope);
+        System.out.println("La nota actual del alumno "+dato+" es "+nota);
         //Modificar nota del alumno
         System.out.println("Introduzca la nueva nota: ");
         array[dato-1]=entrada.nextDouble();
