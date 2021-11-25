@@ -9,11 +9,8 @@ class Notas implements Serializable {
 }
 
 
-
-
 public class Prac8B{
     public static void main(String[] args) {
-        
 
         // DEFINICION DE VARIABLES
         int option, posicion;
@@ -51,7 +48,7 @@ public class Prac8B{
             switch (option) {
             case 1:
                 System.out.println("*******INTRODUCIR NOTAS**********");
-                
+                tope = insertarDatos(, tope, entrada);
                 break;
 
             case 2:
@@ -95,5 +92,151 @@ public class Prac8B{
 
         } while (option != 9);
     }
+
+    public static void ModificarPorcentaje(double[] array, int tope, Scanner entrada) {
+        System.out.println("Dime el porcentaje en el que quieres modificar la nota");
+        int dato;
+        double modificacion;
+        dato = entrada.nextInt();
+        dato = dato / 100;
+
+        for (int i = 0; i < tope; i++) {
+            if (dato <= 100 && dato >= 0) {
+                modificacion = (dato / 100) * array[i] + array[i];
+                System.out.println("El alumno " + array[i] + " ha sido modificada en " + modificacion);
+            } else {
+                if (dato > 100 && dato < -100) {
+                    System.out.println("Porcentaje no vÃ¡lido");
+                }
+                if (dato < 0 && dato < -100) {
+                    modificacion = ((dato / 10) - 10) * array[i] + array[i];
+                    System.out.println("El alumno " + array[i] + " ha sido modificada en " + modificacion);
+                }
+            }
+        }
+    }
+
+    public static void mostrarDatos(double[] array, int tope) {
+        // System.out.println("Las notas son:");
+        for (int i = 0; i < tope; i++) {
+            System.out.print("La nota del alumno [" + (i + 1) + "]: " + array[i] + "\t");
+        }
+        System.out.println("");
+    }
+
+    public static int buscarDato(double[] array, int tope, double dato) {
+        boolean encontrado = false;
+        int i = 0;
+        while (i < tope && !encontrado) {
+            if (dato == array[i]) {
+                encontrado = true;
+            } else {
+                i++;
+            }
+        }
+        return i;
+    }
+
+    public static double buscarAlumno(double[] array, int dato) {
+        double nota = 0;
+        for (int i = 0; i <= dato; i++) {
+            if (dato == i + 1) {
+                System.out.println("El alumno [" + dato + "] tiene una nota de " + array[i]);
+            }
+        }
+        return nota;
+    }
+
+    public static double maxArray(double[] array, int tope) {
+        double max = array[0];
+        for (int i = 1; i < tope; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        return max;
+    }
+
+    public static double minArray(double[] array, int tope) {
+        double min = array[0];
+        for (int i = 1; i < tope; i++) {
+            if (array[i] < min) {
+                min = array[i];
+            }
+        }
+        return min;
+    }
+
+    public static void mostrarEstadistica(double[] arrayNotas, int tope) {
+        // System.out.println("Las notas son:");
+        // La media de la clase.
+        double media = 0;
+        double max = 0;
+        int posicion = 0;
+        for (int i = 0; i < tope; i++) {
+            media = media + arrayNotas[i];
+        }
+        media = media / (tope);
+        System.out.println("La media de la clase es: " + media);
+
+        // El porcentaje de aprobados
+        int suficiente = 0;
+        int notable = 0;
+        int sobresaliente = 0;
+        for (int i = 0; i < arrayNotas.length ; i++) {
+            if (arrayNotas[i] >= 5 && arrayNotas[i] < 7 ) {
+                suficiente++;
+            }if (arrayNotas[i] >= 7 && arrayNotas[i] < 9) {
+                notable ++;
+            }if (arrayNotas[i] >= 9 && arrayNotas[i] < 9.7) {
+                sobresaliente++;
+            }
+        }
+        System.out.println("El porcentaje de aprobados es: " + (suficiente * 100) /tope);
+        System.out.println("El porcentaje de notables es: " + (notable * 100) / 100);
+        System.out.println("El porcentaje de sobresalientes es: " + (sobresaliente * 100) / tope);
+
+        // Nota maxima
+        max = maxArray(arrayNotas, tope);
+        posicion = buscarDato(arrayNotas, tope, max);
+        System.out.println("El alumno " + (posicion + 1) + " ha obtenido " + max);
+
+    }
+
+    public static double modificarDatos(double[] array, int tope, Scanner entrada) {
+        double nota, nuevaNota = 0;
+        int dato = 0;
+        // Buscar nota del alumno
+        System.out.println("Introduzca número de matricula: ");
+        dato = entrada.nextInt();
+        nota = buscarAlumno(array, tope);
+        // Modificar nota del alumno
+        System.out.println("Introduzca la nueva nota: ");
+        array[dato - 1] = entrada.nextDouble();
+        nuevaNota = array[dato - 1];
+        return nuevaNota;
+    }
+
+    public static void mostrarEscrito(double[] arrayNotas, int tope, Scanner entrada) {
+        for (int i = 0; i < tope; i++) {
+            if (arrayNotas[i] < 5) {
+                System.out.println("El alumno " + (i + 1) + " ha obtenido un suspenso");
+            } else if (arrayNotas[i] >= 5 && arrayNotas[i] < 7) {
+                System.out.println("El alumno " + (i + 1) + " ha obtenido un aprobado");
+            } else if (arrayNotas[i] >= 7 && arrayNotas[i] < 9) {
+                System.out.println("El alumno " + (i + 1) + " ha obtenido un notable");
+            } else if (arrayNotas[i] >= 9 && arrayNotas[i] < 9.6) {
+                System.out.println("El alumno " + (i + 1) + " ha obtenido un sobresaliente");
+            } else {
+                System.out.println("El alumno " + (i + 1) + " ha obtenido una matricula de honor");
+            }
+
+        }
+
+    }
+
 }
+
+
+
 
