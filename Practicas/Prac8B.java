@@ -2,7 +2,7 @@ import java.io.Serializable;
 import java.util.Scanner;
 
 //CLASES
-class Notas implements Serializable {
+class Alumno implements Serializable {
     String nombre;
     int edad;
     double nota;
@@ -19,9 +19,9 @@ public class Prac8B{
         double nuevaNota, min;
 
         Scanner entrada = new Scanner(System.in);
-        Notas [] miClase = new Notas[20];
+        Alumno [] miClase = new Alumno[20];
         for (int i = 0; i < miClase.length; i++) {
-            miClase[i] = new Notas();
+            miClase[i] = new Alumno();
         }
 
         System.out.println("De cuantas filas quieres crear la tabla");
@@ -48,7 +48,7 @@ public class Prac8B{
             switch (option) {
             case 1:
                 System.out.println("*******INTRODUCIR NOTAS**********");
-                tope = insertarDatos(Notas[tope].nombre,Notas[tope].edad, Notas[tope].nota, tope, entrada);
+                tope = insertarDatos(Alumno[tope].nombre,Alumno[tope].edad, Alumno[tope].nota, tope, entrada);
                 break;
 
             case 2:
@@ -93,18 +93,18 @@ public class Prac8B{
         } while (option != 9);
     }
 
-    public static int insertarDatos(Notas [] nombre,Notas [] edad, Notas [] nota,int tope, Scanner entrada) {
+    public static int insertarDatos(Alumnos [] nombre,Alumnos [] edad, Alumnos [] nota,int tope, Scanner entrada) {
         int seguir;
         //Meter notas
         System.out.println("¿Quieres introducir mas números? 1 Si 2 No");
         seguir = entrada.nextInt();
         do {
             System.out.println("Introduzca el nombre del alumno: ");
-            Notas[tope].nombre = entrada.nextDouble();
+            nombre[tope].nombres = entrada.nextDouble();
             System.out.println("Introduzca la edad del alumno: ");
-            Notas[tope].edad = entrada.nextDouble();
+            edad[tope].edades = entrada.nextDouble();
             System.out.println("Introduzca la nota del alumno: ");
-            Notas[tope].nota = entrada.nextDouble();
+            nota[tope].notas = entrada.nextDouble();
             System.out.println("¿Quieres introducir mas números? 1 Si 2 No");
             seguir = entrada.nextInt();
             tope++;
@@ -113,7 +113,3 @@ public class Prac8B{
     }
 
 }
-
-
-
-
