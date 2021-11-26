@@ -59,21 +59,25 @@ public class Prac8B{
 
             case 3:
                 System.out.println("*******CALCULAR ESTADISTICAS**********");
-                 mostrarEstadistica(miClase, tope);
+                mostrarEstadistica(miClase, tope);
                 break;
 
             case 4:
                 System.out.println("*******MONSTRAR NOTA DE ALUMNO**********");
-                buscarAlumno(miClase, dato, entrada);
+                System.out.println("Introduzca número de matricula: ");
+                dato = entrada.nextInt();
+                buscarAlumno(miClase, dato);
                 break;
 
             case 5:
                 System.out.println("*******MODIFICAR NOTA**********");
+                nuevaNota = modificarDatos(miClase, tope, entrada);
                
                 break;
 
             case 6:
                 System.out.println("*******MOSTRAR LA NOTA ESCRITA**********");
+                mostrarEscrito(miClase, tope, entrada);
                
                 break;
 
@@ -172,17 +176,17 @@ public class Prac8B{
         return max;
     }
     
-    static void buscarAlumno(Alumno [] array, int tope, Scanner entrada) {
-        System.out.print("Dime el número de matricula del alumno que buscas");
-        int dato; dato = entrada.nextInt();
-        for (int i = 0; i < tope; i++) {
-            System.out.println("El nombre del alumno" + dato + " es "+ array[i].nombre);
-            System.out.println("La edad del alumno" + dato + " es "+ array[i].edad);
-            System.out.println("La nota del alumno" + dato + " es "+ array[i].nota);
+    static double buscarAlumno(Alumno [] array, int dato) {
+        double nota = 0;
+        for (int i = 0; i <= dato; i++) {
+            if (dato == i + 1) {
+                System.out.println("El alumno [" + dato + "] tiene una nota de " + array[i].nota);
+            }
         }
+        return nota;
     }
     
-    public static int buscarNotas(Alumno [] array, int tope, double dato) {
+    static int buscarNotas(Alumno [] array, int tope, double dato) {
         boolean encontrado = false;
         int i = 0;
         while (i < tope && !encontrado) {
@@ -195,4 +199,35 @@ public class Prac8B{
         return i;
     }
     
+    static double modificarDatos(Alumno [] array, int tope, Scanner entrada) {
+        double notu, nuevaNota = 0;
+        int dato = 0;
+        // Buscar nota del alumno
+        System.out.println("Introduzca número de matricula: ");
+        dato = entrada.nextInt();
+        notu = buscarAlumno(array, tope);
+        // Modificar nota del alumno
+        System.out.println("Introduzca la nueva nota: ");
+        array[dato - 1].nota = entrada.nextDouble();
+        nuevaNota = array[dato - 1].nota;
+        return nuevaNota;
+    }
+    
+    public static void mostrarEscrito(Alumno [] arrayNotas, int tope, Scanner entrada) {
+        for (int i = 0; i < tope; i++) {
+            if (arrayNotas[i].nota < 5) {
+                System.out.println("El alumno " + arrayNotas[i].matricula + " ha obtenido un suspenso");
+            } else if (arrayNotas[i].nota >= 5 && arrayNotas[i].nota < 7) {
+                System.out.println("El alumno " + arrayNotas[i].matricula + " ha obtenido un aprobado");
+            } else if (arrayNotas[i].nota >= 7 && arrayNotas[i].nota < 9) {
+                System.out.println("El alumno " + arrayNotas[i].matricula + " ha obtenido un notable");
+            } else if (arrayNotas[i].nota >= 9 && arrayNotas[i].nota < 9.6) {
+                System.out.println("El alumno " + arrayNotas[i].matricula + " ha obtenido un sobresaliente");
+            } else {
+                System.out.println("El alumno " + arrayNotas[i].matricula + " ha obtenido una matricula de honor");
+            }
+
+        }
+
+    }   
 }
