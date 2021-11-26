@@ -91,7 +91,7 @@ public class Prac8B{
 
             case 8:
                 System.out.println("*******MOSTRAR LAS NOTAS DE PORCENTAJE**********");
-                
+                modificarPocerntaje(miClase, tope, entrada);
                 break;
 
             default:
@@ -243,5 +243,20 @@ public class Prac8B{
             }
         }
         return min;
+    }
+    
+    static void modificarPocerntaje(Alumno [] array, int tope, Scanner entrada){
+        System.out.println("Dime el porcentaje en el que quieres modificar la nota");
+        int dato;
+        dato = entrada.nextInt();
+        for (int i = 0; i < tope; i++) {
+            array[i].nota = ((array[i].nota*dato/100)+ array[i].nota);
+            if (array[i].nota > 10) {
+                array[i].nota = 0;  
+            } else if (array[i].nota > 10){
+                array[i].nota = 10;
+            }
+            System.out.print("El alumno con matricula" + (i + 1)+ " ha sido modificada y es " + array[i].nota);
+        }
     }
 }
