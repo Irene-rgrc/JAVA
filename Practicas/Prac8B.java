@@ -121,6 +121,8 @@ public class Prac8B{
                 break;
 
             case 12:
+                System.out.println("*********MODIFICAR ELEMENTO EN LA MATRIZ********");
+                modificarMatriz (matriz, entrada);
                 break;
 
             default:
@@ -326,6 +328,23 @@ public class Prac8B{
                 }
             }
         }
+
+    }
+
+    static void modificarMatriz (int array[][], Scanner entrada) {
+        System.out.println("Introducir la fila a modificar: ");
+        int fila = entrada.nextInt();
+        System.out.println("Introducir la columna a modificar: ");
+        int colum = entrada.nextInt();
+        for (int i = 0; i < array.length; i++){
+            for (int j = 0; j < array[i].length;j++ ){
+                if (i==fila && j==colum ){
+                    System.out.println("Que dato desea introducir en lugar de : "+ array[i][j]);
+                    array[i][j] = entrada.nextInt();
+                }
+            }
+        } 
+        System.out.println("El dato ha sido modificado ");
 
     }
 
