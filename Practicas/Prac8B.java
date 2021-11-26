@@ -93,18 +93,18 @@ public class Prac8B{
         } while (option != 9);
     }
 
-    public static int insertarDatos(Alumnos [] nombre,Alumnos [] edad, Alumnos [] nota,int tope, Scanner entrada) {
+    public static int insertarDatos(Alumnos [] miClase,int tope, Scanner entrada) {
         int seguir;
         //Meter notas
         System.out.println("¿Quieres introducir mas números? 1 Si 2 No");
         seguir = entrada.nextInt();
         do {
             System.out.println("Introduzca el nombre del alumno: ");
-            nombre[tope].nombres = entrada.nextDouble();
+            Alumnos[tope]miClase.nombres = entrada.nextDouble();
             System.out.println("Introduzca la edad del alumno: ");
-            edad[tope].edades = entrada.nextDouble();
+            Alunos[tope]miClase.edades = entrada.nextDouble();
             System.out.println("Introduzca la nota del alumno: ");
-            nota[tope].notas = entrada.nextDouble();
+            Alumnos[tope]miClase.notas = entrada.nextDouble();
             System.out.println("¿Quieres introducir mas números? 1 Si 2 No");
             seguir = entrada.nextInt();
             tope++;
