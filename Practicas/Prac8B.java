@@ -48,7 +48,7 @@ public class Prac8B{
             switch (option) {
             case 1:
                 System.out.println("*******INTRODUCIR NOTAS**********");
-                tope = insertarDatos(Alumno[tope].nombre,Alumno[tope].edad, Alumno[tope].nota, tope, entrada);
+                tope = insertarDatos(miClase, tope, entrada);
                 break;
 
             case 2:
