@@ -59,12 +59,12 @@ public class Prac8B{
 
             case 3:
                 System.out.println("*******CALCULAR ESTADISTICAS**********");
-               
+                 mostrarEstadistica(miClase, tope);
                 break;
 
             case 4:
                 System.out.println("*******MONSTRAR NOTA DE ALUMNO**********");
-                
+                buscarAlumno(miClase, dato, entrada);
                 break;
 
             case 5:
@@ -125,4 +125,74 @@ public class Prac8B{
         }
         System.out.println("");
     }
+    
+    static void mostrarEstadistica(Alumno [] arrayNotas, int tope) {
+        // System.out.println("Las notas son:");
+        // La media de la clase.
+        double media = 0;
+        double max = 0;
+        int posicion = 0;
+        for (int i = 0; i < tope; i++) {
+            media = media + arrayNotas[i].nota;
+        }
+        media = media / (tope);
+        System.out.println("La media de la clase es: " + media);
+
+        // El porcentaje de aprobados
+        int suficiente = 0;
+        int notable = 0;
+        int sobresaliente = 0;
+        for (int i = 0; i < arrayNotas.length ; i++) {
+            if (arrayNotas[i].nota >= 5 && arrayNotas[i].nota < 7 ) {
+                suficiente++;
+            }if (arrayNotas[i].nota >= 7 && arrayNotas[i].nota < 9) {
+                notable ++;
+            }if (arrayNotas[i].nota >= 9 && arrayNotas[i].nota < 9.7) {
+                sobresaliente++;
+            }
+        }
+        System.out.println("El porcentaje de aprobados es: " + (suficiente * 100) /tope);
+        System.out.println("El porcentaje de notables es: " + (notable * 100) / 100);
+        System.out.println("El porcentaje de sobresalientes es: " + (sobresaliente * 100) / tope);
+
+        // Nota maxima
+        max = maxArray(arrayNotas, tope);
+        posicion = buscarNotas(arrayNotas, tope, max);
+        System.out.println("El alumno " + (posicion + 1) + " ha obtenido " + max);
+
+    }
+    
+    static double maxArray(Alumno [] array, int tope) {
+        double max = array[0].nota;
+        for (int i = 1; i < tope; i++) {
+            if (array[i].nota > max) {
+                max = array[i].nota;
+            }
+        }
+        return max;
+    }
+    
+    static void buscarAlumno(Alumno [] array, int tope, Scanner entrada) {
+        System.out.print("Dime el número de matricula del alumno que buscas");
+        int dato; dato = entrada.nextInt();
+        for (int i = 0; i < tope; i++) {
+            System.out.println("El nombre del alumno" + dato + " es "+ array[i].nombre);
+            System.out.println("La edad del alumno" + dato + " es "+ array[i].edad);
+            System.out.println("La nota del alumno" + dato + " es "+ array[i].nota);
+        }
+    }
+    
+    public static int buscarNotas(Alumno [] array, int tope, double dato) {
+        boolean encontrado = false;
+        int i = 0;
+        while (i < tope && !encontrado) {
+            if (dato == array[i].nota) {
+                encontrado = true;
+            } else {
+                i++;
+            }
+        }
+        return i;
+    }
+    
 }
