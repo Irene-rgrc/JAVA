@@ -116,7 +116,10 @@ public class Prac8B{
                 break;
 
             case 11:
+                System.out.println("*********BUSCAR ELEMENTO EN LA MATRIZ********");
+                buscarMatriz (matriz, entrada);
                 break;
+
             case 12:
                 break;
 
@@ -307,6 +310,21 @@ public class Prac8B{
                 System.out.print(array[i][j] + "\t");
             }
             System.out.println("");
+        }
+
+    }
+
+    static void buscarMatriz (int array[][], Scanner entrada) {
+        System.out.println("Introducir la fila a buscar: ");
+        int fila = entrada.nextInt();
+        System.out.println("Introducir la columna a buscar: ");
+        int colum = entrada.nextInt();
+        for (int i = 0; i < array.length; i++){
+            for (int j = 0; j < array[i].length;j++ ){
+                if (i==fila && j==colum ){
+                    System.out.println("El valor de la matriz en la posicion ["+i+"]["+j+"] es: "+ array[i][j]);
+                }
+            }
         }
 
     }
