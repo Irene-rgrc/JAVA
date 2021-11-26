@@ -6,6 +6,7 @@ class Alumno implements Serializable {
     String nombre;
     int edad;
     double nota;
+    int matricula;
 }
 
 
@@ -53,7 +54,7 @@ public class Prac8B{
 
             case 2:
                 System.out.println("*******MOSTRAR DATOS**********");
-                
+                mostrarDatos(miClase, tope);
                 break;
 
             case 3:
@@ -93,23 +94,35 @@ public class Prac8B{
         } while (option != 9);
     }
 
-    static int insertarDatos(Alumnos [] miClase,int tope, Scanner entrada) {
+    static int insertarDatos(Alumno [] array,int tope, Scanner entrada) {
         int seguir;
         //Meter notas
-        System.out.println("¿Quieres introducir mas números? 1 Si 2 No");
-        seguir = entrada.nextInt();
+        //System.out.println("¿Quieres introducir mas números? 1 Si 2 No");
+        //seguir = entrada.nextInt();
+        array[tope] = new Alumno();
         do {
+            array[tope].matricula = tope + 1;
             System.out.println("Introduzca el nombre del alumno: ");
-            miClase[tope].nombre = entrada.nextDouble();
+            entrada.nextLine();
+            array[tope].nombre = entrada.nextLine();
             System.out.println("Introduzca la edad del alumno: ");
-            miClase[tope].edad = entrada.nextDouble();
+            array[tope].edad = entrada.nextInt();
             System.out.println("Introduzca la nota del alumno: ");
-            miClase[tope].nota = entrada.nextDouble();
+            array[tope].nota = entrada.nextDouble();
             System.out.println("¿Quieres introducir mas números? 1 Si 2 No");
             seguir = entrada.nextInt();
             tope++;
         } while (seguir == 1 && tope < array.length);
         return tope;
     }
-
+    
+    static void mostrarDatos(Alumno [] array, int tope) {
+        // System.out.println("Las notas son:");
+        for (int i = 0; i < tope; i++) {
+            System.out.println("El nombre del alumno  [" + array[i].matricula + "] es " + array[i].nombre);
+            System.out.println("La edad del alumno  [" + array[i].matricula + "] es " + array[i].edad);
+            System.out.println("La nota del alumno  [" + array[i].matricula + "] es " + array[i].nota);
+        }
+        System.out.println("");
+    }
 }
