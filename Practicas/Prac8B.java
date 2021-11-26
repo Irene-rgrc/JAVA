@@ -25,9 +25,13 @@ public class Prac8B{
             miClase[i] = new Alumno();
         }
 
+        // Creacion de matriz bidimensional
         System.out.println("De cuantas filas quieres crear la tabla");
-
+        int m = entrada.nextInt();
         System.out.println("De cuantas columnos quieres crear la tabla");
+        int n = entrada.nextInt();
+        
+        int matriz[][] = new int[m][n];
 
         do {
             System.out.println("Menu : ");
@@ -39,7 +43,11 @@ public class Prac8B{
             System.out.println("6. Mostrar la nota escrita");
             System.out.println("7.Mostrar la nota del alumno con peor nota");
             System.out.println("8. Modificar todas las notas en un porcentaje,");
-            System.out.println("9. Salir ");
+            System.out.println("9. Rellenar matriz");
+            System.out.println("10. Mostrar matriz");
+            System.out.println("11. Buscar un elemento en la matriz");
+            System.out.println("12. Modificar un elemento en la matriz");
+            System.out.println("13. Salir ");
             System.out.println("Elija una opción: ");
 
 
@@ -47,6 +55,7 @@ public class Prac8B{
             option = entrada.nextInt();
 
             switch (option) {
+            //APARTADO A
             case 1:
                 System.out.println("*******INTRODUCIR NOTAS**********");
                 tope = insertarDatos(miClase, tope, entrada);
@@ -93,13 +102,32 @@ public class Prac8B{
                 System.out.println("*******MOSTRAR LAS NOTAS DE PORCENTAJE**********");
                 modificarPocerntaje(miClase, tope, entrada);
                 break;
+            
+            //APARTADO B
+
+            case 9:
+                System.out.println("*******RELLENAR MATRIZ**********");
+                rellenarMatriz (matriz,entrada);
+                break;
+
+            case 10:
+                System.out.println("*********MOSTRAR MATRIZ********");
+                mostrarMatriz(matriz);
+                break;
+
+            case 11:
+                break;
+            case 12:
+                break;
 
             default:
                 System.out.println("Hasta luego.");
             }
 
-        } while (option != 9);
+        } while (option != 13);
     }
+
+//APARTADO A
 
     static int insertarDatos(Alumno [] array,int tope, Scanner entrada) {
         int seguir;
@@ -259,4 +287,28 @@ public class Prac8B{
             System.out.print("El alumno con matricula" + (i + 1)+ " ha sido modificada y es " + array[i].nota);
         }
     }
+
+//APARTADO B
+
+    static void rellenarMatriz (int array[][], Scanner entrada) {
+        for (int i = 0; i < array.length; i++){
+            for (int j = 0; j < array[i].length;j++ ){
+                System.out.print("Insertar numero en la posicion ["+i+"]["+j+"]: ");
+                array[i][j] = entrada.nextInt();
+            }
+        }
+
+    }
+
+    static void mostrarMatriz (int array[][]) {
+        System.out.println("La matriz es: ");
+        for (int i = 0; i < array.length; i++){
+            for (int j = 0; j < array[i].length;j++ ){
+                System.out.print(array[i][j] + "\t");
+            }
+            System.out.println("");
+        }
+
+    }
+
 }
