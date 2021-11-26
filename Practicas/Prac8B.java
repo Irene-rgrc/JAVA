@@ -83,7 +83,10 @@ public class Prac8B{
 
             case 7:
                 System.out.println("*******MOSTRAR LA PEOR NOTA**********");
-                
+                min = minArray(miClase, tope);
+                System.out.println("La peor nota es:" + min);
+                posicion = buscarNotas(miClase, tope, min);
+                System.out.println("El alumno con la peor nota es " + (posicion + 1));
                 break;
 
             case 8:
@@ -201,11 +204,12 @@ public class Prac8B{
     
     static double modificarDatos(Alumno [] array, int tope, Scanner entrada) {
         double notu, nuevaNota = 0;
-        int dato = 0;
+        int dato;
         // Buscar nota del alumno
         System.out.println("Introduzca número de matricula: ");
         dato = entrada.nextInt();
-        notu = buscarAlumno(array, tope);
+        System.out.println("El alumno [" + array[dato-1].matricula + "] tiene una nota de " + array[dato-1].nota);
+        
         // Modificar nota del alumno
         System.out.println("Introduzca la nueva nota: ");
         array[dato - 1].nota = entrada.nextDouble();
@@ -213,7 +217,7 @@ public class Prac8B{
         return nuevaNota;
     }
     
-    public static void mostrarEscrito(Alumno [] arrayNotas, int tope, Scanner entrada) {
+    static void mostrarEscrito(Alumno [] arrayNotas, int tope, Scanner entrada) {
         for (int i = 0; i < tope; i++) {
             if (arrayNotas[i].nota < 5) {
                 System.out.println("El alumno " + arrayNotas[i].matricula + " ha obtenido un suspenso");
@@ -229,5 +233,15 @@ public class Prac8B{
 
         }
 
-    }   
+    }
+    
+    static double minArray(Alumno [] array, int tope) {
+        double min = array[0].nota;
+        for (int i = 1; i < tope; i++) {
+            if (array[i].nota < min) {
+                min = array[i].nota;
+            }
+        }
+        return min;
+    }
 }
