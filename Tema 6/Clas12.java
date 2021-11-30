@@ -15,7 +15,7 @@ public class Clas12 {
         Scanner sc = new Scanner(System.in);
         // EJERCICIO 6
         //CREAR FICHERO STRING Y QUE PUEDAS METER LOD NUMEROS
-        try {
+        /*try {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("datos1.dat"));
             System.out.println("Dame la frase para escribi4r en dicho fichero");
             String frase = sc.nextLine();
@@ -31,8 +31,26 @@ public class Clas12 {
         } catch (IOException e2){
             System.out.println(e2.getMessage());
         }
-        
+        */
+        try {
+            BufferedWriter out = new BufferedWriter(new FileWriter("datos1.txt"));
+            System.out.println("Dame la frase para escribi4r en dicho fichero");
+            String frase = sc.nextLine();
+            out.write(frase);
+            out.close();
+        } catch(IOException e1){
+            System.out.println(e1.getMessage());
+        }
+        try {
+            //Monto un flujo para leer el fichero en binario
+            BufferedReader in = new BufferedReader(new FileReader("datos1.txt"));
+            System.out.print(" la frase guradada es: "+  in.readLine());
+        } catch (IOException e2){
+            System.out.println(e2.getMessage());
+        }
         //SACAR LOS CARACTERES POR PANTALLA Y CONTAR LOS CARACTERES QUE TIENE
+        
     }
     
 }
+
