@@ -27,7 +27,7 @@ public class Clas12 {
         try {
             //Monto un flujo para leer el fichero en binario
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("datos1.dat"));
-            System.out.print(" la frase guradada es: "+ (String) in.readObject());
+            System.out.print(" la frase guradada es: "+ (String) in.readObject()); // Guardamos el String objectect y hacemos un frasesplit("La frase") tq String palabras[] = frasesplit(" "); Asi podemos calcular cuantas palabras hay.
         } catch (IOException e2){
             System.out.println(e2.getMessage());
         }
