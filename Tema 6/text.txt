@@ -1,0 +1,5 @@
+CARACTERES
+File Writer  FileReader
+
+BYTES
+OutputStream InputStream
