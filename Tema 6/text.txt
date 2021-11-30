@@ -1,5 +1,7 @@
-CARACTERES
-File Writer  FileReader
+--CARACTERES--
 
-BYTES
-OutputStream InputStream
+   File Writer  FileReader
+
+--BYTES--
+
+   OutputStream InputStream
