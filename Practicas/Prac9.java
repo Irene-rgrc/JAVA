@@ -22,12 +22,16 @@ public class Prac9 {
 
         // DEFINICION DE VARIABLES
         int option;
-        int tope = 0;
+        int tope = 0; int tope2 = 0;
 
         Scanner entrada = new Scanner(System.in);
         Alumno [] miAlumno = new Alumno[20];
         for (int i = 0; i < miAlumno.length; i++) {
             miAlumno[i] = new Alumno();
+        }
+        Persona[] miAgenda = new Persona[40];
+        for(int i=0 ; i<miAgenda.length ; i++){
+            miAgenda[i] = new Persona();
         }
 
         do {
@@ -45,6 +49,7 @@ public class Prac9 {
             switch (option) {
             case 1:
                 System.out.println("*******CREAR AGENDA**********");
+                tope = crearAgenda(miAgenda, tope2, entrada);
                 break;
 
             case 2:
@@ -69,15 +74,15 @@ public class Prac9 {
         } while (option != 5);
     }
 
-    static int crearAgenda(Alumno [] array, int tope, Scanner entrada){
+    static int crearAgenda(Persona [] array, int tope2, Scanner entrada){
         int seguir = 0;
-        String nombre = array[tope].nombre;
-        String telefono = array[tope].telefono;
+        String nombre = array[tope2].nombre;
+        String telefono = array[tope2].telefono;
         try {
-            BufferedWriter out = new BufferedWriter(new FileWriter("datos1.txt"));
+            BufferedWriter out = new BufferedWriter(new FileWriter("agenda.txt"));
             do {
                 System.out.println("Introduzca el nombre");
-                String frase = entrada.nextLine();
+                entrada.nextLine();
                 nombre = entrada.nextLine();
                 out.write(nombre);
                 System.out.println("Introduzca el telefono");
@@ -85,13 +90,13 @@ public class Prac9 {
                 out.write(telefono);
                 System.out.println("Desea introducir mas contactos: 1 Si 2 No");
                 seguir = entrada.nextInt();
-                tope++;
+                tope2++;
             } while (seguir !=  2);
             out.close();
         } catch(IOException e1){
             System.out.println(e1.getMessage());
         }
-        return tope;
+        return tope2;
 
     }
     
