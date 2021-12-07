@@ -1,7 +1,12 @@
 import java.util.Scanner;
 import java.io.*;
 
-public class Practica9 {
+class Alumno {
+    String nombre, direccion;
+    int edad;
+}
+
+public class Prac9 {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
     
@@ -9,10 +14,15 @@ public class Practica9 {
         System.out.println("Autor : Irene Rodriguez García");
         System.out.println("********************************");
 
-        // variables de la funcion de valorar si es primo o no
+        // DEFINICION DE VARIABLES
         int option;
+        int tope = 0;
 
         Scanner entrada = new Scanner(System.in);
+        Alumno [] miAlumno = new Alumno[20];
+        for (int i = 0; i < miAlumno.length; i++) {
+            miAlumno[i] = new Alumno();
+        }
 
         do {
             System.out.println("Menu : ");
@@ -28,9 +38,7 @@ public class Practica9 {
 
             switch (option) {
             case 1:
-
                 System.out.println("*******CREAR AGENDA**********");
-                
                 break;
 
             case 2:
@@ -40,12 +48,12 @@ public class Practica9 {
 
             case 3:
                 System.out.println("*******CREAR FICHERO AMIGO**********");
-                
+                tope = crearFichero(miAlumno, tope, entrada);
                 break;
 
             case 4:
                 System.out.println("*******MONSTRAR FICHERO AMIGO**********");
-                
+                leerFichero(miAlumno, tope, entrada);
                 break;
 
             default:
@@ -53,6 +61,55 @@ public class Practica9 {
             }
 
         } while (option != 5);
+    }
+    
+    static int crearFichero(Alumno [] array, int tope, Scanner entrada){
+        int seguir = 0;
+        String nombre = array[tope].nombre;
+        int edad = array[tope].edad;
+        String direccion = array[tope].direccion;
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("fichero.dat"));
+            do {
+                System.out.println("Dame el nombre");
+                entrada.nextLine();
+                nombre = entrada.nextLine();
+                out.writeObject(nombre);
+                System.out.println("Dame la edad");
+                edad = entrada.nextInt();
+                out.writeObject(edad);
+                System.out.println("Dame la direccion");
+                entrada.nextLine();
+                direccion = entrada.nextLine();
+                out.writeObject(direccion);
+                System.out.println("Desea introducir mas numeros: 1 Si 2 No");
+                seguir = entrada.nextInt();
+                tope++;
+            } while (seguir !=  2);
+            
+            out.close();
+        } catch(IOException e1){
+            System.out.println(e1.getMessage());
+        }
+        return tope;
+    }
+    static void leerFichero (Alumno [] array, int tope, Scanner entrada) throws ClassNotFoundException{
+        
+        try {
+            //Monto un flujo para leer el fichero en binario
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("fichero.dat"));
+            System.out.println("Nombre: "+ (String) in.readObject());
+            String nombre = (String) in.readObject();
+            String palabras1[] = nombre.split(" ");
+            System.out.println("Edad: "+ (int) in.readObject());
+            int edad = (int) in.readObject();
+            System.out.println("Direccion: "+ (String) in.readObject());
+            String direccion = (String) in.readObject();
+            String palabras2[] = direccion.split(" ");
+
+        } catch (IOException e2){
+            System.out.println(e2.getMessage());
+        }
     }
     
 }
