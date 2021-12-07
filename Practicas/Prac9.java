@@ -6,6 +6,12 @@ class Alumno {
     int edad;
 }
 
+class Persona {
+    String nombre;
+    String telefono;
+}
+
+
 public class Prac9 {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
@@ -62,6 +68,32 @@ public class Prac9 {
 
         } while (option != 5);
     }
+
+    static int crearAgenda(Alumno [] array, int tope, Scanner entrada){
+        int seguir = 0;
+        String nombre = array[tope].nombre;
+        String telefono = array[tope].telefono;
+        try {
+            BufferedWriter out = new BufferedWriter(new FileWriter("datos1.txt"));
+            do {
+                System.out.println("Introduzca el nombre");
+                String frase = entrada.nextLine();
+                nombre = entrada.nextLine();
+                out.write(nombre);
+                System.out.println("Introduzca el telefono");
+                telefono = entrada.nextLine();
+                out.write(telefono);
+                System.out.println("Desea introducir mas contactos: 1 Si 2 No");
+                seguir = entrada.nextInt();
+                tope++;
+            } while (seguir !=  2);
+            out.close();
+        } catch(IOException e1){
+            System.out.println(e1.getMessage());
+        }
+        return tope;
+
+    }
     
     static int crearFichero(Alumno [] array, int tope, Scanner entrada){
         int seguir = 0;
@@ -93,8 +125,8 @@ public class Prac9 {
         }
         return tope;
     }
-    static void leerFichero (Alumno [] array, int tope, Scanner entrada) throws ClassNotFoundException{
-        
+
+    static void leerFichero (Alumno [] array, int tope, Scanner entrada) throws ClassNotFoundException{   
         try {
             //Monto un flujo para leer el fichero en binario
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("fichero.dat"));
