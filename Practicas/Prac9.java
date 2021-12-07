@@ -99,6 +99,16 @@ public class Prac9 {
         return tope2;
 
     }
+
+    static void leerAgenda (Persona [] array, int tope2, Scanner entrada)  throws FileNotFoundException, IOException{
+        try {
+            BufferedReader in = new BufferedReader(new FileReader("agenda.txt"));
+            // METER BUCLE while (nosequeponeraqui != null){ aqui como las separo?}  
+            System.out.print(" Nombre: "+  in.readLine());
+        } catch (IOException e2){
+            System.out.println(e2.getMessage());
+        }
+    }
     
     static int crearFichero(Alumno [] array, int tope, Scanner entrada){
         int seguir = 0;
