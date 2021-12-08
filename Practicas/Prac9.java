@@ -54,7 +54,7 @@ public class Prac9 {
 
             case 2:
                 System.out.println("*******MOSTRAR AGENDA**********");
-                
+                leerAgenda(miAgenda, tope2);
                 break;
 
             case 3:
@@ -64,7 +64,7 @@ public class Prac9 {
 
             case 4:
                 System.out.println("*******MONSTRAR FICHERO AMIGO**********");
-                leerFichero(miAlumno, tope, entrada);
+                leerFichero(miAlumno, tope);
                 break;
 
             default:
@@ -100,7 +100,7 @@ public class Prac9 {
 
     }
 
-    static void leerAgenda (Persona [] array, int tope2, Scanner entrada)  throws FileNotFoundException, IOException{
+    static void leerAgenda (Persona [] array, int tope2)  throws FileNotFoundException, IOException{
         try {
             BufferedReader in = new BufferedReader(new FileReader("agenda.txt"));
             // METER BUCLE while (nosequeponeraqui != null){ aqui como las separo?}  
@@ -141,7 +141,7 @@ public class Prac9 {
         return tope;
     }
 
-    static void leerFichero (Alumno [] array, int tope, Scanner entrada) throws ClassNotFoundException{   
+    static void leerFichero (Alumno [] array, int tope) throws ClassNotFoundException{   
         try {
             //Monto un flujo para leer el fichero en binario
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("fichero.dat"));
