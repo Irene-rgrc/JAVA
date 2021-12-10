@@ -1,3 +1,10 @@
+import java.util.Scanner;
+import java.io.*;
+import static java.lang.System.in;
+
+class Alumno implements Serializable{
+    String nombre, direccion;
+    int edad;
 }
 
 class Persona {
@@ -96,10 +103,16 @@ public class Prac9 {
     }
 
     static void leerAgenda (Persona [] array, int tope2)  throws FileNotFoundException, IOException{
+        
         try {
             BufferedReader in = new BufferedReader(new FileReader("agenda.txt"));
-            // METER BUCLE while (nosequeponeraqui != null){ aqui como las separo?}  
-            System.out.print(" Nombre: "+  in.readLine());
+            String agenda = in.readLine();
+            // METER BUCLE while (nosequeponeraqui != null){ aqui como las separo?}
+            while ( agenda != null){
+                System.out.print(agenda);
+                agenda = in.readLine();
+            }
+            
         } catch (IOException e2){
             System.out.println(e2.getMessage());
         }
