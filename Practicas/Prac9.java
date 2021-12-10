@@ -24,7 +24,6 @@ public class Prac9 {
         // DEFINICION DE VARIABLES
         int option;
         int tope = 0; int tope2 = 0;
-        FileOutputStream fos = new FileOutputStream("fichero.dat");
 
         Scanner entrada = new Scanner(System.in);
         Alumno [] miAlumno = new Alumno[20];
@@ -61,7 +60,7 @@ public class Prac9 {
 
             case 3:
                 System.out.println("*******CREAR FICHERO AMIGO**********");
-                crearFichero(entrada, fos);
+                crearFichero(entrada);
                 break;
 
             case 4:
@@ -81,15 +80,14 @@ public class Prac9 {
         String nombre = array[tope2].nombre;
         String telefono = array[tope2].telefono;
         try {
-            BufferedWriter out = new BufferedWriter(new FileWriter("agenda.txt"));
+            BufferedWriter out = new BufferedWriter(new FileWriter("agenda.txt", true));
             do {
                 System.out.println("Introduzca el nombre");
                 entrada.nextLine();
                 nombre = entrada.nextLine();
-                out.write(nombre);
                 System.out.println("Introduzca el telefono");
                 telefono = entrada.nextLine();
-                out.write(telefono);
+                out.write("Nombre: " + nombre + " Telefono: " + telefono + "\n");
                 System.out.println("Desea introducir mas contactos: 1 Si 2 No");
                 seguir = entrada.nextInt();
                 tope2++;
@@ -106,11 +104,12 @@ public class Prac9 {
         
         try {
             BufferedReader in = new BufferedReader(new FileReader("agenda.txt"));
-            String agenda = in.readLine();
-            // METER BUCLE while (nosequeponeraqui != null){ aqui como las separo?}
-            while ( agenda != null){
-                System.out.print(agenda);
-                agenda = in.readLine();
+            String vacio;
+            vacio = in.readLine();
+            //METER BUCLE while (nosequeponeraqui != null){ aqui como las separo?}
+            while (vacio != null){
+                System.out.println(vacio);
+                vacio = in.readLine();
             }
             
         } catch (IOException e2){
@@ -118,11 +117,11 @@ public class Prac9 {
         }
     }
     
-    static void crearFichero(Scanner entrada, FileOutputStream fos){
+    static void crearFichero(Scanner entrada){
         int seguir = 0;
         Alumno alumno;
         try {
-            ObjectOutputStream out = new ObjectOutputStream(fos);
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("amigos.dat", true));
             do {
                 alumno = new Alumno();
                 System.out.println("Dame el nombre");
@@ -158,7 +157,7 @@ public class Prac9 {
                 alumno = (Alumno) in.readObject();  
             }
         } catch (IOException e2){
-            System.out.println(e2.getMessage());
+            System.out.println(" ");
         }
     }
     
