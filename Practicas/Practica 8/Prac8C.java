@@ -1,3 +1,6 @@
+package P8C;
+
+
 import java.util.Scanner;
 import java.io.*;
 
@@ -138,7 +141,7 @@ public class Prac8C {
                         ObjectInputStream in = new ObjectInputStream(new FileInputStream("notas.dat"));
                         //Alumno alumno = (Alumno) in.readObject();
                         alumno = (Alumno) in.readObject();
-                        while (alumno != null) {
+                        while (alumno.nombre != null) {
                             miClase[y] = alumno;
                             y++;
                             alumno = (Alumno) in.readObject();
@@ -147,6 +150,7 @@ public class Prac8C {
                     } catch (IOException e2) {
                         System.out.println(e2.getMessage());
                     }
+                    tope = y;
                     break;
 
                 default:
