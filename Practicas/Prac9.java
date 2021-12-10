@@ -1,6 +1,6 @@
+package P9;
 import java.util.Scanner;
 import java.io.*;
-import static java.lang.System.in;
 
 class Alumno implements Serializable{
     String nombre, direccion;
@@ -23,7 +23,7 @@ public class Prac9 {
 
         // DEFINICION DE VARIABLES
         int option;
-        int tope = 0; int tope2 = 0;
+        int tope2 = 0;
 
         Scanner entrada = new Scanner(System.in);
         Alumno [] miAlumno = new Alumno[20];
@@ -55,7 +55,7 @@ public class Prac9 {
 
             case 2:
                 System.out.println("*******MOSTRAR AGENDA**********");
-                leerAgenda(miAgenda, tope2);
+                leerAgenda();
                 break;
 
             case 3:
@@ -100,7 +100,7 @@ public class Prac9 {
 
     }
 
-    static void leerAgenda (Persona [] array, int tope2)  throws FileNotFoundException, IOException{
+    static void leerAgenda ()  throws FileNotFoundException, IOException{
         
         try {
             BufferedReader in = new BufferedReader(new FileReader("agenda.txt"));
@@ -148,7 +148,7 @@ public class Prac9 {
         try {
             Alumno alumno;
             //Monto un flujo para leer el fichero en binario
-            ObjectInputStream in = new ObjectInputStream(new FileInputStream("fichero.dat"));
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("amigos.dat"));
             alumno = (Alumno) in.readObject();
             while (alumno != null){
                 System.out.println("Nombre: " + alumno.nombre);
