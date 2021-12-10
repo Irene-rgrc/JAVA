@@ -1,9 +1,3 @@
-import java.util.Scanner;
-import java.io.*;
-
-class Alumno {
-    String nombre, direccion;
-    int edad;
 }
 
 class Persona {
@@ -23,6 +17,7 @@ public class Prac9 {
         // DEFINICION DE VARIABLES
         int option;
         int tope = 0; int tope2 = 0;
+        FileOutputStream fos = new FileOutputStream("fichero.dat");
 
         Scanner entrada = new Scanner(System.in);
         Alumno [] miAlumno = new Alumno[20];
@@ -49,7 +44,7 @@ public class Prac9 {
             switch (option) {
             case 1:
                 System.out.println("*******CREAR AGENDA**********");
-                tope = crearAgenda(miAgenda, tope2, entrada);
+                tope2 = crearAgenda(miAgenda, tope2, entrada);
                 break;
 
             case 2:
@@ -59,12 +54,12 @@ public class Prac9 {
 
             case 3:
                 System.out.println("*******CREAR FICHERO AMIGO**********");
-                tope = crearFichero(miAlumno, tope, entrada);
+                crearFichero(entrada, fos);
                 break;
 
             case 4:
                 System.out.println("*******MONSTRAR FICHERO AMIGO**********");
-                leerFichero(miAlumno, tope);
+                leerFichero();
                 break;
 
             default:
@@ -110,50 +105,45 @@ public class Prac9 {
         }
     }
     
-    static int crearFichero(Alumno [] array, int tope, Scanner entrada){
+    static void crearFichero(Scanner entrada, FileOutputStream fos){
         int seguir = 0;
-        String nombre = array[tope].nombre;
-        int edad = array[tope].edad;
-        String direccion = array[tope].direccion;
+        Alumno alumno;
         try {
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("fichero.dat"));
+            ObjectOutputStream out = new ObjectOutputStream(fos);
             do {
+                alumno = new Alumno();
                 System.out.println("Dame el nombre");
                 entrada.nextLine();
-                nombre = entrada.nextLine();
-                out.writeObject(nombre);
+                alumno.nombre = entrada.nextLine();
                 System.out.println("Dame la edad");
-                edad = entrada.nextInt();
-                out.writeObject(edad);
+                alumno.edad = entrada.nextInt();
                 System.out.println("Dame la direccion");
                 entrada.nextLine();
-                direccion = entrada.nextLine();
-                out.writeObject(direccion);
+                alumno.direccion = entrada.nextLine();
+                out.writeObject(alumno);
                 System.out.println("Desea introducir mas numeros: 1 Si 2 No");
                 seguir = entrada.nextInt();
-                tope++;
+               
             } while (seguir !=  2);
             
             out.close();
         } catch(IOException e1){
             System.out.println(e1.getMessage());
-        }
-        return tope;
+        } 
     }
 
-    static void leerFichero (Alumno [] array, int tope) throws ClassNotFoundException{   
+    static void leerFichero () throws ClassNotFoundException{   
         try {
+            Alumno alumno;
             //Monto un flujo para leer el fichero en binario
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("fichero.dat"));
-            System.out.println("Nombre: "+ (String) in.readObject());
-            String nombre = (String) in.readObject();
-            String palabras1[] = nombre.split(" ");
-            System.out.println("Edad: "+ (int) in.readObject());
-            int edad = (int) in.readObject();
-            System.out.println("Direccion: "+ (String) in.readObject());
-            String direccion = (String) in.readObject();
-            String palabras2[] = direccion.split(" ");
-
+            alumno = (Alumno) in.readObject();
+            while (alumno != null){
+                System.out.println("Nombre: " + alumno.nombre);
+                System.out.println("Edad: " + alumno.edad);
+                System.out.println("Direccion: " + alumno.direccion);
+                alumno = (Alumno) in.readObject();  
+            }
         } catch (IOException e2){
             System.out.println(e2.getMessage());
         }
